@@ -1,0 +1,26 @@
+# KiCad local/user state
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+
+# KiCad autosave / rescue / lock files
+~*.*
+*.lck
+
+# Local history / backups
+.history/
+*-backups/
+
+# Generated manufacturing/output folders
+output/
+outputs/
+gerbers/
+fab/
+fabrication/
+assembly/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
