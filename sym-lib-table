@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "remote_zx80-b-5s_30_") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_zx80-b-5s_30_.kicad_sym") (options "") (descr "Remote download"))
+	(lib (name "remote_n_a") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_n_a.kicad_sym") (options "") (descr "Remote download"))
+)
