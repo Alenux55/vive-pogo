@@ -1186,361 +1186,16 @@
 			)
 		)
 	)
-	(footprint "remote_n_a:TP_100_SMD"
-		(locked yes)
+	(footprint "remote_test_point__2.00_mm:TP_200_SMD"
 		(layer "B.Cu")
-		(uuid "28ec8466-902e-495e-99ff-5dcef7309481")
-		(at 145 101.3 180)
-		(property "Reference" "TP102"
-			(at 0 1.1 0)
-			(unlocked yes)
-			(layer "B.SilkS")
-			(hide yes)
-			(uuid "8de73a99-0e58-4499-b7ff-ba9775b4ab6d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "TP_100_SMD"
-			(at 0 -1 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fea2ceac-b7db-449a-a6d2-14fbaad12d1c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" "N/A"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ee75008a-b9e9-4a5e-9032-a67e102cf0ae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "Test Point, 1.00 mm diameter, SMD"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7c2f1422-7129-40ce-bbb5-b63d52fcb01b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Manufacturer" "N/A"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2516b6bd-186c-4c29-bf25-352e59eed0ec")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Manufacturer Part Number" "N/A"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f2a8dc9b-569d-4607-940f-4cedb57d6de7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Vendor" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0939b0d1-562c-4028-b996-d5e4ad79273b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Vendor Part Number" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "510c86c8-0fd2-4b65-a43e-db92c7b1594b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Mass (g)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "68836780-a13a-44d8-9ebe-3c4b03168273")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "RQjC (C/W)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b916321c-b2a9-4ec3-8ca7-8c88ccd748b3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "RQjC_top (C/W)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ff518d9f-c52f-4a18-88ad-2e5d0159a471")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Temp_max (C)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bb788657-4206-4985-92d6-00cfac56c7b5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Temp_min (C)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "230a423a-2b8b-44cf-8cb0-27e046a6224d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Power Dissipation (W)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5e5660be-57d3-4cf9-abe4-69e798999eae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Rate" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8e32612b-7874-4f8f-836e-cd84dac3a99e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "SAP Code" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ec0f4449-0ad5-4ea7-8a59-de6c0784fee0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Full Value" "N/A"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b4d71f04-7b2c-4238-afd2-98d13979bd4c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Internal Part Number" "MSC-000001"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c8170b7b-3144-4234-83cf-25b958d32076")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(path "/149c7f69-4f55-4502-9f16-c80dd53f626c")
-		(sheetname "/")
-		(sheetfile "vive-pogo.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr smd exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start 1 1)
-			(end -1 1)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(layer "B.CrtYd")
-			(uuid "2c452f62-6be1-4fdc-95ef-5de7fe40323f")
-		)
-		(fp_line
-			(start 1 -1)
-			(end 1 1)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(layer "B.CrtYd")
-			(uuid "a45fa754-dcc7-4491-a433-7018bb17fcad")
-		)
-		(fp_line
-			(start -1 1)
-			(end -1 -1)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(layer "B.CrtYd")
-			(uuid "efc9741d-a2ad-4080-a6b2-1fabfccfa961")
-		)
-		(fp_line
-			(start -1 -1)
-			(end 1 -1)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(layer "B.CrtYd")
-			(uuid "781035c7-3dab-47a9-91d2-1e9224e26082")
-		)
-		(fp_arc
-			(start 0 -0.5)
-			(mid 0 0.5)
-			(end 0 -0.5)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(layer "B.Fab")
-			(uuid "56c50314-1e5e-4f4d-bc49-7f06ff79fe0b")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(uuid "7cd3a984-2218-4726-bc01-1f8c3d0ade6d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "Net-(P101-GND)")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(thermal_bridge_angle 90)
-			(uuid "5a9ee87c-defb-4c10-83d1-ccbdbedd8593")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "remote_n_a:TP_100_SMD"
-		(locked yes)
-		(layer "B.Cu")
-		(uuid "a538c1b4-5404-4b62-b569-9bee5c8086f1")
-		(at 145 98.7 180)
+		(uuid "c5fca558-b6df-406b-a930-5e9d0effc538")
+		(at 145 97.5 180)
 		(property "Reference" "TP101"
-			(at 0 1.1 0)
+			(at 0 2 0)
 			(unlocked yes)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "e44493f9-b7c5-494f-8c74-1d80d3a63377")
+			(uuid "854cf3c4-1a98-4d81-94db-f5567e7227d7")
 			(effects
 				(font
 					(size 1 1)
@@ -1549,12 +1204,12 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "TP_100_SMD"
+		(property "Value" "TP_200_SMD"
 			(at 0 -1 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "03530aef-4657-41ac-9df4-db941743bf16")
+			(uuid "93ef21c8-10c4-4f4a-8560-0c8080b3a4b9")
 			(effects
 				(font
 					(size 1 1)
@@ -1568,7 +1223,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "89c36a0f-374d-4917-bed1-14d573eab4b3")
+			(uuid "efdfd0b1-254d-418a-b888-35fb25d5a65d")
 			(effects
 				(font
 					(size 1 1)
@@ -1577,12 +1232,12 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "Test Point, 1.00 mm diameter, SMD"
+		(property "Description" "Test Point, 2.00 mm diameter, SMD"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "03a3e94d-98d2-4962-85b4-49e5a32be3b0")
+			(uuid "f129ad1d-df84-4a3d-b5c5-0bcfaed85f71")
 			(effects
 				(font
 					(size 1 1)
@@ -1591,12 +1246,12 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer" "N/A"
+		(property "Manufacturer" "[None]"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e5365241-d630-45a5-8470-d3cbc4fe50b0")
+			(uuid "6c13f45f-5089-4165-abd4-6ada58f92bf2")
 			(effects
 				(font
 					(size 1 1)
@@ -1605,12 +1260,12 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer Part Number" "N/A"
+		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "eb50d0ed-8e47-48a3-a861-f0b5bb1bb472")
+			(uuid "e01b698c-f40d-4d85-9da6-dd5b1499256a")
 			(effects
 				(font
 					(size 1 1)
@@ -1624,7 +1279,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "2056ce68-ed18-4234-ba5c-def26d00b83b")
+			(uuid "48e1fa33-0bc4-4952-af58-c8cecb35226e")
 			(effects
 				(font
 					(size 1 1)
@@ -1638,7 +1293,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "f9bd315f-4c4f-4f34-9f88-3cd804e795d9")
+			(uuid "b11ce4a9-2ade-40d3-946a-556df6f35a18")
 			(effects
 				(font
 					(size 1 1)
@@ -1652,7 +1307,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "641aac42-3860-497b-9a17-dc3a58f61635")
+			(uuid "9f61e654-0baa-4d10-92a1-a5474437658a")
 			(effects
 				(font
 					(size 1 1)
@@ -1666,7 +1321,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "3a46d8b7-ac77-49f4-834f-cea2bddc2d7b")
+			(uuid "dccc29c4-84a2-4117-905b-94e7eb6f3faa")
 			(effects
 				(font
 					(size 1 1)
@@ -1680,7 +1335,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e659bb36-2845-4a60-823c-99d0d7551d38")
+			(uuid "fc990f94-1230-4efb-b2be-d46332f96cb8")
 			(effects
 				(font
 					(size 1 1)
@@ -1694,7 +1349,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "b124fb0c-53fa-444c-b80c-219b40eb6665")
+			(uuid "28e4970b-809c-4fe0-928c-963fe9ec2758")
 			(effects
 				(font
 					(size 1 1)
@@ -1708,7 +1363,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "578a741b-9ca2-4cbe-aa31-5b2e6568e4a5")
+			(uuid "da446146-1dfc-49cf-a691-b45ca9e3607a")
 			(effects
 				(font
 					(size 1 1)
@@ -1722,7 +1377,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "39d20532-ec87-4f1d-ae68-0e04e17044d4")
+			(uuid "ef92d62a-30cf-448b-acb2-25722a891622")
 			(effects
 				(font
 					(size 1 1)
@@ -1736,7 +1391,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "2f03b03a-d6fb-4060-b116-e1a48af1b1fb")
+			(uuid "41eb28b9-ae28-4390-ba02-18247ef76844")
 			(effects
 				(font
 					(size 1 1)
@@ -1750,7 +1405,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "375e82a8-25ac-49ef-b26f-a906caf45072")
+			(uuid "8b1b73bc-578a-4851-88f9-d584746bc5dd")
 			(effects
 				(font
 					(size 1 1)
@@ -1764,7 +1419,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "57d66fec-e7f5-4e6b-99fc-1903460258be")
+			(uuid "de00f4ae-4a84-4e17-8b45-855995bb2f56")
 			(effects
 				(font
 					(size 1 1)
@@ -1773,12 +1428,12 @@
 				(justify mirror)
 			)
 		)
-		(property "Internal Part Number" "MSC-000001"
+		(property "Internal Part Number" "MSC-000002"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "2cad9f6f-da4d-45cd-a5ea-27863f0744ea")
+			(uuid "14ca58c7-5eaa-4504-9602-e9fc8b49c619")
 			(effects
 				(font
 					(size 1 1)
@@ -1787,7 +1442,7 @@
 				(justify mirror)
 			)
 		)
-		(path "/426f86e8-83ba-429d-827c-92d169f99db3")
+		(path "/6d9b20a7-97aa-4f3c-95b5-afd189feb194")
 		(sheetname "/")
 		(sheetfile "vive-pogo.kicad_sch")
 		(units
@@ -1799,44 +1454,44 @@
 		(attr smd exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 1 1)
-			(end -1 1)
+			(start 1.5 1.5)
+			(end -1.5 1.5)
 			(stroke
 				(width 0.1)
 				(type default)
 			)
 			(layer "B.CrtYd")
-			(uuid "6efc44fe-4d44-4c38-8cb0-cbb1c03aae66")
+			(uuid "fc76f073-1306-4a87-876f-b8fda3278656")
 		)
 		(fp_line
-			(start 1 -1)
-			(end 1 1)
+			(start 1.5 -1.5)
+			(end 1.5 1.5)
 			(stroke
 				(width 0.1)
 				(type default)
 			)
 			(layer "B.CrtYd")
-			(uuid "f5ac6e42-b1f9-4115-abbc-b9815ecdb5e2")
+			(uuid "a5fa115a-b90f-4b55-a439-ff395ac94c38")
 		)
 		(fp_line
-			(start -1 1)
-			(end -1 -1)
+			(start -1.5 1.5)
+			(end -1.5 -1.5)
 			(stroke
 				(width 0.1)
 				(type default)
 			)
 			(layer "B.CrtYd")
-			(uuid "5bd94d59-fb0c-457a-9e95-f387c106b72e")
+			(uuid "f4f25be0-a5ba-454c-a5fc-1864e130a668")
 		)
 		(fp_line
-			(start -1 -1)
-			(end 1 -1)
+			(start -1.5 -1.5)
+			(end 1.5 -1.5)
 			(stroke
 				(width 0.1)
 				(type default)
 			)
 			(layer "B.CrtYd")
-			(uuid "2ad05077-e1bf-4f8f-b230-817f359fb3a9")
+			(uuid "bd31d7d0-2001-4aa1-b03a-00f49567c3b3")
 		)
 		(fp_arc
 			(start 0 -0.5)
@@ -1847,13 +1502,13 @@
 				(type default)
 			)
 			(layer "B.Fab")
-			(uuid "007999d7-d331-4f01-b640-e4bf70477466")
+			(uuid "2e013d02-7079-49f4-9866-ede65b1d921f")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
-			(uuid "0e268f7b-c79c-441f-b5a5-fd4ef02bf2cc")
+			(uuid "4de30d30-2d2a-4ee8-bf18-adbb086f3675")
 			(effects
 				(font
 					(size 1 1)
@@ -1864,13 +1519,356 @@
 		)
 		(pad "1" smd circle
 			(at 0 0 180)
-			(size 1 1)
+			(size 2 2)
 			(layers "B.Cu" "B.Mask")
 			(net "Net-(P101-VCC)")
 			(pinfunction "1_1")
 			(pintype "passive")
 			(thermal_bridge_angle 90)
-			(uuid "b3bb0455-fdc2-4604-9b3e-c2d1e6c2a6d5")
+			(uuid "b4ad355e-2def-4a15-9cbe-fda160eba792")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "remote_test_point__2.00_mm:TP_200_SMD"
+		(layer "B.Cu")
+		(uuid "d2c5408a-e81f-4a8b-8cf1-e2f86342f0aa")
+		(at 145 100.8 180)
+		(property "Reference" "TP102"
+			(at 0 2 0)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "599c837d-fe39-47a7-8e2f-5a177e7c681c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "TP_200_SMD"
+			(at 0 -1 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e202cec0-f554-440b-8aaf-8c8ca1c6ac54")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" "N/A"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f70f0d52-2e0e-44a8-bca6-47ae9ba5d54f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" "Test Point, 2.00 mm diameter, SMD"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "203d6848-1fe3-4949-914b-d8a6b9284dff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "[None]"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "23715d68-fac1-4a29-9f77-d8e60257e32a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0ad8abf9-5a9a-4a17-a8d1-85b77cb12d7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Vendor" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "eb64abb6-c05e-4411-85c0-36ee164e456f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Vendor Part Number" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e815add7-ad89-4cee-aa95-97ede6e9b90b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Mass (g)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a1f45316-ec71-4d3d-9024-2797b36bcc30")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "RQjC (C/W)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "080874f7-0101-49d2-97a0-0add38acf9d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "RQjC_top (C/W)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "212161eb-77af-4945-8bab-c5ec4637ee64")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Temp_max (C)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7b57fc4d-20df-49b2-80c1-0813ed24ce00")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Temp_min (C)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f4b52af9-5d95-4ee4-aee3-8f4e0aa75563")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power Dissipation (W)" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "842be1d3-3ce9-4e60-9752-d4b27e467866")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Rate" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "42536be4-c0cc-4ad4-82be-65914c26762a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "SAP Code" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "91e38d51-4a97-4667-9e16-c42705c139d0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Full Value" "N/A"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "631c2dd6-a808-4750-b232-91f2704898b2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Internal Part Number" "MSC-000002"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6209178a-e37a-483a-a4b7-5d10d07ea560")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(path "/f4c481a6-e3de-4086-94cb-12b146f9e7d2")
+		(sheetname "/")
+		(sheetfile "vive-pogo.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr smd exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 1.5 1.5)
+			(end -1.5 1.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "B.CrtYd")
+			(uuid "73ace48e-cd37-4e01-85c1-b03b8f7fe579")
+		)
+		(fp_line
+			(start 1.5 -1.5)
+			(end 1.5 1.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "B.CrtYd")
+			(uuid "6fff0332-ed78-4492-b252-030f46127326")
+		)
+		(fp_line
+			(start -1.5 1.5)
+			(end -1.5 -1.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "B.CrtYd")
+			(uuid "f3c1b27b-4e56-4322-8a0a-dbe7a80a41e0")
+		)
+		(fp_line
+			(start -1.5 -1.5)
+			(end 1.5 -1.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "B.CrtYd")
+			(uuid "c3058152-bbc9-4816-b31f-51835fe34986")
+		)
+		(fp_arc
+			(start 0 -0.5)
+			(mid 0 0.5)
+			(end 0 -0.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "B.Fab")
+			(uuid "cc2454dd-c840-4539-a01b-a2b6f1472e92")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(uuid "1cf7f062-8e7c-47ef-89eb-70c9796c4e44")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 180)
+			(size 2 2)
+			(layers "B.Cu" "B.Mask")
+			(net "Net-(P101-GND)")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(thermal_bridge_angle 90)
+			(uuid "da5ab3b8-e567-415b-a81c-96b888bed059")
 		)
 		(embedded_fonts no)
 	)
@@ -1959,7 +1957,7 @@
 		(uuid "615b638c-88cf-40ca-993a-c98705f06982")
 	)
 	(gr_text "VCC"
-		(at 145 97.6 0)
+		(at 145 95.9 0)
 		(layer "B.SilkS")
 		(uuid "d3496ea0-b2dc-4df6-a1c6-38aa4ddde8b2")
 		(effects
@@ -1971,7 +1969,7 @@
 		)
 	)
 	(gr_text "GND"
-		(at 145 100.2 0)
+		(at 145 99.2 0)
 		(layer "B.SilkS")
 		(uuid "b98d52b1-4fcf-4516-8b17-bcade6326791")
 		(effects
@@ -2007,20 +2005,28 @@
 		(uuid "679eec0e-29b0-4a72-8fa0-5b31371685cb")
 	)
 	(segment
-		(start 143.5 100.2)
-		(end 145 98.7)
+		(start 143.5 97.5)
+		(end 145 97.5)
 		(width 1)
 		(layer "B.Cu")
 		(net "Net-(P101-VCC)")
-		(uuid "4296f9b6-8b90-437c-b3d6-6ee0a8f6e8ee")
+		(uuid "4b18d0f8-09f9-44c2-b384-e83b754840c5")
+	)
+	(segment
+		(start 143 98)
+		(end 143.5 97.5)
+		(width 1)
+		(layer "B.Cu")
+		(net "Net-(P101-VCC)")
+		(uuid "d8022642-89b0-415d-85b6-16f706abf3bb")
 	)
 	(segment
 		(start 143 100.2)
-		(end 143.5 100.2)
+		(end 143 98)
 		(width 1)
 		(layer "B.Cu")
 		(net "Net-(P101-VCC)")
-		(uuid "821e25ae-81d9-4f76-bc74-bd35de7e0b63")
+		(uuid "eafb0df6-8d35-40cb-81a8-3637356e79c2")
 	)
 	(segment
 		(start 147 100.2)
@@ -2047,20 +2053,20 @@
 		(uuid "7e8c7859-f580-456b-9553-933784e7c47a")
 	)
 	(segment
-		(start 145 101.3)
-		(end 146.1 100.2)
+		(start 145 100.8)
+		(end 146.4 100.8)
 		(width 1)
 		(layer "B.Cu")
 		(net "Net-(P101-GND)")
-		(uuid "d0c6ef5b-4af0-463e-821c-8764885e7801")
+		(uuid "528c5ad5-21a4-4fd4-b88d-6e6cefab0f59")
 	)
 	(segment
-		(start 146.1 100.2)
+		(start 146.4 100.8)
 		(end 147 100.2)
 		(width 1)
 		(layer "B.Cu")
 		(net "Net-(P101-GND)")
-		(uuid "f52cf183-e6ae-4137-867e-d6b14f4c8ede")
+		(uuid "928de4ed-0d41-491a-809f-83eeaacb0888")
 	)
 	(embedded_fonts no)
 )

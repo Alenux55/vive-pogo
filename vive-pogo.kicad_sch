@@ -5,7 +5,7 @@
 	(uuid "1166111d-0282-4376-ab43-2f8d00e90f39")
 	(paper "A4")
 	(lib_symbols
-		(symbol "remote_n_a:Test_Point"
+		(symbol "remote_test_point__2.00_mm:Test_Point"
 			(pin_numbers
 				(hide yes)
 			)
@@ -27,7 +27,7 @@
 					)
 				)
 			)
-			(property "Value" "TP_100_SMD"
+			(property "Value" "TP_200_SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -37,7 +37,7 @@
 					)
 				)
 			)
-			(property "Footprint" "remote_n_a:TP_100_SMD"
+			(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -59,7 +59,7 @@
 					)
 				)
 			)
-			(property "Description" "Test Point, 1.00 mm diameter, SMD"
+			(property "Description" "Test Point, 2.00 mm diameter, SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -70,7 +70,7 @@
 					)
 				)
 			)
-			(property "Manufacturer" "N/A"
+			(property "Manufacturer" "[None]"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -81,7 +81,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part Number" "N/A"
+			(property "Manufacturer Part Number" "Test Point, 2.00 mm"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -213,7 +213,7 @@
 					)
 				)
 			)
-			(property "Internal Part Number" "MSC-000001"
+			(property "Internal Part Number" "MSC-000002"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -733,236 +733,6 @@
 		(uuid "d0ab3878-38e9-4523-bf42-0ef361ce690c")
 	)
 	(symbol
-		(lib_id "remote_n_a:Test_Point")
-		(at 152.4 111.76 0)
-		(unit 1)
-		(body_style 0)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "149c7f69-4f55-4502-9f16-c80dd53f626c")
-		(property "Reference" "TP102"
-			(at 152.4 109.474 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TP_100_SMD"
-			(at 152.4 114.046 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "remote_n_a:TP_100_SMD"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "N/A"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Test Point, 1.00 mm diameter, SMD"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "N/A"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part Number" "N/A"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Vendor" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Vendor Part Number" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mass (g)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "RQjC (C/W)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "RQjC_top (C/W)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Temp_max (C)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Temp_min (C)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Power Dissipation (W)" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Rate" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SAP Code" ""
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Full Value" "N/A"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Internal Part Number" "MSC-000001"
-			(at 152.4 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "03deb55d-3d0f-4c13-b273-0bc3724bc915")
-		)
-		(instances
-			(project "vive-pogo"
-				(path "/1166111d-0282-4376-ab43-2f8d00e90f39"
-					(reference "TP102")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "remote_zx80-b-5s_30_:ZX80-B-5S")
 		(at 167.64 99.06 0)
 		(unit 1)
@@ -1207,7 +977,7 @@
 		)
 	)
 	(symbol
-		(lib_id "remote_n_a:Test_Point")
+		(lib_id "remote_test_point__2.00_mm:Test_Point")
 		(at 152.4 101.6 0)
 		(unit 1)
 		(body_style 0)
@@ -1216,7 +986,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "426f86e8-83ba-429d-827c-92d169f99db3")
+		(uuid "6d9b20a7-97aa-4f3c-95b5-afd189feb194")
 		(property "Reference" "TP101"
 			(at 152.4 99.314 0)
 			(show_name no)
@@ -1227,7 +997,7 @@
 				)
 			)
 		)
-		(property "Value" "TP_100_SMD"
+		(property "Value" "TP_200_SMD"
 			(at 152.4 103.886 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1237,7 +1007,7 @@
 				)
 			)
 		)
-		(property "Footprint" "remote_n_a:TP_100_SMD"
+		(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
 			(at 152.4 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1259,7 +1029,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point, 1.00 mm diameter, SMD"
+		(property "Description" "Test Point, 2.00 mm diameter, SMD"
 			(at 152.4 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1270,7 +1040,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "N/A"
+		(property "Manufacturer" "[None]"
 			(at 152.4 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1281,7 +1051,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part Number" "N/A"
+		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
 			(at 152.4 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1413,7 +1183,7 @@
 				)
 			)
 		)
-		(property "Internal Part Number" "MSC-000001"
+		(property "Internal Part Number" "MSC-000002"
 			(at 152.4 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1425,12 +1195,242 @@
 			)
 		)
 		(pin "1"
-			(uuid "00a13cea-9a76-4bbc-84db-2ecab09e4866")
+			(uuid "59f42001-74ce-40b8-9749-8847ccad914a")
 		)
 		(instances
 			(project "vive-pogo"
 				(path "/1166111d-0282-4376-ab43-2f8d00e90f39"
 					(reference "TP101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "remote_test_point__2.00_mm:Test_Point")
+		(at 152.4 111.76 0)
+		(unit 1)
+		(body_style 0)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f4c481a6-e3de-4086-94cb-12b146f9e7d2")
+		(property "Reference" "TP102"
+			(at 152.4 109.474 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_200_SMD"
+			(at 152.4 114.046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "N/A"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point, 2.00 mm diameter, SMD"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "[None]"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Vendor" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Vendor Part Number" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mass (g)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "RQjC (C/W)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "RQjC_top (C/W)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temp_max (C)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temp_min (C)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power Dissipation (W)" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Rate" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SAP Code" ""
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Full Value" "N/A"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Internal Part Number" "MSC-000002"
+			(at 152.4 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82871f5e-1aab-4836-bd59-baa068387bdf")
+		)
+		(instances
+			(project "vive-pogo"
+				(path "/1166111d-0282-4376-ab43-2f8d00e90f39"
+					(reference "TP102")
 					(unit 1)
 				)
 			)
