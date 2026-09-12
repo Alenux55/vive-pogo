@@ -29,7 +29,7 @@
 				)
 			)
 		)
-		(property "Footprint" "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S"
+		(property "Footprint" "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S_Slot"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)

@@ -3,4 +3,7 @@
 	(lib (name "alenux") (type "KiCad") (uri "E:/Documents/GitHub/kicad-lib/alenux.pretty") (options "") (descr ""))
 	(lib (name "remote_zx80-b-5s_30_") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/footprints/remote_zx80-b-5s_30_.pretty/") (options "") (descr "Remote download"))
 	(lib (name "remote_n_a") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/footprints/remote_n_a.pretty/") (options "") (descr "Remote download"))
+	(lib (name "Downloads") (type "KiCad") (uri "C:/Users/alexr/Downloads.pretty") (options "") (descr ""))
+	(lib (name "alexr") (type "KiCad") (uri "C:/Users/alexr.pretty") (options "") (descr ""))
+	(lib (name "alenux") (type "KiCad") (uri "E:/Documents/GitHub/kicad-lib/alenux.pretty") (options "") (descr ""))
 )
