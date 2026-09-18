@@ -7,4 +7,6 @@
 	(lib (name "alexr") (type "KiCad") (uri "C:/Users/alexr.pretty") (options "") (descr ""))
 	(lib (name "alenux") (type "KiCad") (uri "E:/Documents/GitHub/kicad-lib/alenux.pretty") (options "") (descr ""))
 	(lib (name "remote_test_point__2.00_mm") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/footprints/remote_test_point__2.00_mm.pretty/") (options "") (descr "Remote download"))
+	(lib (name "alenux") (type "KiCad") (uri "E:/Documents/GitHub/kicad-lib/alenux.pretty") (options "") (descr ""))
+	(lib (name "remote_rc0402jr-070rp") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/footprints/remote_rc0402jr-070rp.pretty/") (options "") (descr "Remote download"))
 )

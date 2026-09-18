@@ -3,4 +3,5 @@
 	(lib (name "remote_zx80-b-5s_30_") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_zx80-b-5s_30_.kicad_sym") (options "") (descr "Remote download"))
 	(lib (name "remote_n_a") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_n_a.kicad_sym") (options "") (descr "Remote download"))
 	(lib (name "remote_test_point__2.00_mm") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_test_point__2.00_mm.kicad_sym") (options "") (descr "Remote download"))
+	(lib (name "remote_rc0402jr-070rp") (type "KiCad") (uri "E:/Documents/GitHub/vive-pogo/RemoteLibrary/symbols/remote_rc0402jr-070rp.kicad_sym") (options "") (descr "Remote download"))
 )
