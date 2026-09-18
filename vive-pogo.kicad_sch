@@ -3,7 +3,10 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "1166111d-0282-4376-ab43-2f8d00e90f39")
-	(paper "A4")
+	(paper "A5")
+	(title_block
+		(title "Main")
+	)
 	(lib_symbols
 		(symbol "remote_rc0402jr-070rp:Res"
 			(pin_numbers
@@ -987,12 +990,12 @@
 		)
 	)
 	(no_connect
-		(at 165.1 109.22)
+		(at 111.76 71.12)
 		(uuid "34b4d2ea-d9b8-4a40-a6a4-f916036f963d")
 	)
 	(wire
 		(pts
-			(xy 139.7 111.76) (xy 149.86 111.76)
+			(xy 88.9 73.66) (xy 96.52 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1002,17 +1005,17 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 101.6) (xy 165.1 101.6)
+			(xy 101.6 73.66) (xy 111.76 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "98651a27-e024-4107-9bdb-f01457229252")
+		(uuid "501fb4a5-0101-4209-852c-44ba438cc124")
 	)
 	(wire
 		(pts
-			(xy 149.86 106.68) (xy 165.1 106.68)
+			(xy 96.52 68.58) (xy 111.76 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1022,7 +1025,17 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 104.14) (xy 165.1 104.14)
+			(xy 101.6 63.5) (xy 111.76 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9db3d290-aaeb-46c2-9e92-16a71d3aab47")
+	)
+	(wire
+		(pts
+			(xy 96.52 66.04) (xy 111.76 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1032,7 +1045,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 101.6) (xy 149.86 104.14)
+			(xy 96.52 63.5) (xy 96.52 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1042,17 +1055,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 111.76) (xy 165.1 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0ab3878-38e9-4523-bf42-0ef361ce690c")
-	)
-	(wire
-		(pts
-			(xy 149.86 111.76) (xy 149.86 106.68)
+			(xy 96.52 73.66) (xy 96.52 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1062,7 +1065,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 101.6) (xy 149.86 101.6)
+			(xy 88.9 63.5) (xy 96.52 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1070,253 +1073,49 @@
 		)
 		(uuid "e612aed9-2f9a-4cc5-a38a-69f4cb3fc30b")
 	)
-	(symbol
-		(lib_id "remote_zx80-b-5s_30_:ZX80-B-5S")
-		(at 165.1 99.06 0)
-		(unit 1)
-		(body_style 0)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "204b2c9d-0186-44db-89c3-6242763dd54b")
-		(property "Reference" "P101"
-			(at 165.1 97.79 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+	(label "DP"
+		(at 104.14 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Value" "ZX80-B-5S"
-			(at 165.1 115.57 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+		(uuid "3cf6a0ab-09d7-485a-b1c9-4312b01b4df6")
+	)
+	(label "GND"
+		(at 104.14 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Footprint" "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S_Slot"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "4d4028ef-c6db-4a8e-bbb0-8f6f0b7b4cd6")
+	)
+	(label "DN"
+		(at 104.14 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Datasheet" "https://www.hirose.com/en/product/p/CL0242-0017-1-30"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "7fa9f175-e9d4-4e1f-9759-cbe2d61892ca")
+	)
+	(label "VCC"
+		(at 104.14 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Description" "Connector, Micro-USB, Type B, Plug, Locking"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Hirose"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part Number" "ZX80-B-5S(30)"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Vendor" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Vendor Part Number" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mass (g)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "RQjC (C/W)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "RQjC_top (C/W)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Temp_max (C)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Temp_min (C)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Power Dissipation (W)" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Rate" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SAP Code" ""
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Full Value" "ZX80-B-5S(30)"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Internal Part Number" "CON-000001"
-			(at 165.1 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7651379d-aff4-4d66-9995-d8fdf64e1e4d")
-		)
-		(pin "4"
-			(uuid "5054b094-2cc5-4ecd-9f9e-9bf23c5f770d")
-		)
-		(pin "5"
-			(uuid "6cea4c0a-d94c-4046-953f-d76212582a4e")
-		)
-		(pin "3"
-			(uuid "ecfaaefa-ec9d-4672-9fff-3df8ddb94b6b")
-		)
-		(pin "2"
-			(uuid "6d7d2be1-45a8-4cf2-ba00-c92a0cfd393d")
-		)
-		(instances
-			(project "vive-pogo"
-				(path "/1166111d-0282-4376-ab43-2f8d00e90f39"
-					(reference "P101")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "9c3891d9-521b-4801-9fc6-26f38aee8ad2")
 	)
 	(symbol
 		(lib_id "remote_rc0402jr-070rp:Res")
-		(at 139.7 101.6 90)
+		(at 88.9 63.5 90)
 		(mirror x)
 		(unit 1)
 		(body_style 0)
@@ -1327,7 +1126,7 @@
 		(dnp no)
 		(uuid "5627bea7-16a0-4078-931c-b906bb239b06")
 		(property "Reference" "R101"
-			(at 140.97 105.41 90)
+			(at 90.17 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1338,7 +1137,7 @@
 			)
 		)
 		(property "Value" "0R"
-			(at 140.97 107.95 90)
+			(at 90.17 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1349,7 +1148,7 @@
 			)
 		)
 		(property "Footprint" "remote_rc0402jr-070rp:R_0402_1005Metric"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1360,7 +1159,7 @@
 			)
 		)
 		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/PYU-RC_51_ROHS_P"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1371,7 +1170,7 @@
 			)
 		)
 		(property "Description" "0R, 0402 (1005 Metric), 1.0 A, Jumper"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1382,7 +1181,7 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1393,7 +1192,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "RC0402JR-070RP"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1404,7 +1203,7 @@
 			)
 		)
 		(property "Vendor" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1415,7 +1214,7 @@
 			)
 		)
 		(property "Vendor Part Number" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1426,7 +1225,7 @@
 			)
 		)
 		(property "Mass (g)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1437,7 +1236,7 @@
 			)
 		)
 		(property "RQjC (C/W)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1448,7 +1247,7 @@
 			)
 		)
 		(property "RQjC_top (C/W)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1459,7 +1258,7 @@
 			)
 		)
 		(property "Temp_max (C)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1470,7 +1269,7 @@
 			)
 		)
 		(property "Temp_min (C)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1481,7 +1280,7 @@
 			)
 		)
 		(property "Power Dissipation (W)" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1492,7 +1291,7 @@
 			)
 		)
 		(property "Rate" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1503,7 +1302,7 @@
 			)
 		)
 		(property "SAP Code" ""
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1514,7 +1313,7 @@
 			)
 		)
 		(property "Full Value" "0R_0402"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1525,7 +1324,7 @@
 			)
 		)
 		(property "Internal Part Number" "RES-000001"
-			(at 139.7 101.6 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1552,7 +1351,7 @@
 	)
 	(symbol
 		(lib_id "remote_test_point__2.00_mm:Test_Point")
-		(at 152.4 101.6 0)
+		(at 101.6 63.5 0)
 		(unit 1)
 		(body_style 0)
 		(exclude_from_sim no)
@@ -1562,7 +1361,7 @@
 		(dnp no)
 		(uuid "6d9b20a7-97aa-4f3c-95b5-afd189feb194")
 		(property "Reference" "TP101"
-			(at 152.4 96.52 0)
+			(at 101.6 58.42 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1572,7 +1371,7 @@
 			)
 		)
 		(property "Value" "TP_200_SMD"
-			(at 152.4 99.06 0)
+			(at 101.6 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1582,7 +1381,7 @@
 			)
 		)
 		(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1593,7 +1392,7 @@
 			)
 		)
 		(property "Datasheet" "N/A"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1604,7 +1403,7 @@
 			)
 		)
 		(property "Description" "Test Point, 2.00 mm diameter, SMD"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1615,7 +1414,7 @@
 			)
 		)
 		(property "Manufacturer" "[None]"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1626,7 +1425,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1637,7 +1436,7 @@
 			)
 		)
 		(property "Vendor" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1648,7 +1447,7 @@
 			)
 		)
 		(property "Vendor Part Number" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1659,7 +1458,7 @@
 			)
 		)
 		(property "Mass (g)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1670,7 +1469,7 @@
 			)
 		)
 		(property "RQjC (C/W)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1681,7 +1480,7 @@
 			)
 		)
 		(property "RQjC_top (C/W)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1692,7 +1491,7 @@
 			)
 		)
 		(property "Temp_max (C)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1703,7 +1502,7 @@
 			)
 		)
 		(property "Temp_min (C)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1714,7 +1513,7 @@
 			)
 		)
 		(property "Power Dissipation (W)" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1725,7 +1524,7 @@
 			)
 		)
 		(property "Rate" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1736,7 +1535,7 @@
 			)
 		)
 		(property "SAP Code" ""
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1747,7 +1546,7 @@
 			)
 		)
 		(property "Full Value" "N/A"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1758,7 +1557,7 @@
 			)
 		)
 		(property "Internal Part Number" "MSC-000002"
-			(at 152.4 101.6 0)
+			(at 101.6 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1781,38 +1580,40 @@
 		)
 	)
 	(symbol
-		(lib_id "remote_test_point__2.00_mm:Test_Point")
-		(at 152.4 111.76 0)
+		(lib_id "remote_zx80-b-5s_30_:ZX80-B-5S")
+		(at 114.3 60.96 0)
 		(unit 1)
-		(body_style 0)
+		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f4c481a6-e3de-4086-94cb-12b146f9e7d2")
-		(property "Reference" "TP102"
-			(at 152.4 114.3 0)
+		(uuid "c2180125-63af-4cfe-9209-56a3a834b204")
+		(property "Reference" "P101"
+			(at 114.3 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "TP_200_SMD"
-			(at 152.4 116.84 0)
+		(property "Value" "ZX80-B-5S"
+			(at 114.3 77.47 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
-			(at 152.4 111.76 0)
+		(property "Footprint" "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S_Slot"
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1822,8 +1623,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "N/A"
-			(at 152.4 111.76 0)
+		(property "Datasheet" "https://www.hirose.com/en/product/p/CL0242-0017-1-30"
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1833,8 +1634,8 @@
 				)
 			)
 		)
-		(property "Description" "Test Point, 2.00 mm diameter, SMD"
-			(at 152.4 111.76 0)
+		(property "Description" "Connector, Micro-USB, Type B, Plug, Locking"
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1844,8 +1645,8 @@
 				)
 			)
 		)
-		(property "Manufacturer" "[None]"
-			(at 152.4 111.76 0)
+		(property "Manufacturer" "Hirose"
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1855,8 +1656,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
-			(at 152.4 111.76 0)
+		(property "Manufacturer Part Number" "ZX80-B-5S(30)"
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1867,7 +1668,7 @@
 			)
 		)
 		(property "Vendor" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1878,7 +1679,7 @@
 			)
 		)
 		(property "Vendor Part Number" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1889,7 +1690,7 @@
 			)
 		)
 		(property "Mass (g)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1900,7 +1701,7 @@
 			)
 		)
 		(property "RQjC (C/W)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1911,7 +1712,7 @@
 			)
 		)
 		(property "RQjC_top (C/W)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1922,7 +1723,7 @@
 			)
 		)
 		(property "Temp_max (C)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1933,7 +1734,7 @@
 			)
 		)
 		(property "Temp_min (C)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1944,7 +1745,7 @@
 			)
 		)
 		(property "Power Dissipation (W)" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1955,7 +1756,7 @@
 			)
 		)
 		(property "Rate" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1966,7 +1767,260 @@
 			)
 		)
 		(property "SAP Code" ""
-			(at 152.4 111.76 0)
+			(at 114.3 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Full Value" "ZX80-B-5S(30)"
+			(at 114.3 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Internal Part Number" "CON-000001"
+			(at 114.3 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Component Class" "Edge Connector"
+			(at 114.3 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "f8e7c494-bccd-4907-b350-f527914ed46a")
+		)
+		(pin "5"
+			(uuid "7a3a0e18-4717-485e-8846-88c6dc00414f")
+		)
+		(pin "2"
+			(uuid "07848c56-de88-4e5d-8792-55f3badf4aef")
+		)
+		(pin "3"
+			(uuid "d7ac7ca5-8ab4-44bb-a0f2-7a77a30bbd57")
+		)
+		(pin "1"
+			(uuid "84d3a985-c7ed-4fae-993e-1db240d37b90")
+		)
+		(instances
+			(project "vive-pogo"
+				(path "/1166111d-0282-4376-ab43-2f8d00e90f39"
+					(reference "P101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "remote_test_point__2.00_mm:Test_Point")
+		(at 101.6 73.66 0)
+		(unit 1)
+		(body_style 0)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f4c481a6-e3de-4086-94cb-12b146f9e7d2")
+		(property "Reference" "TP102"
+			(at 101.6 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_200_SMD"
+			(at 101.6 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "remote_test_point__2.00_mm:TP_200_SMD"
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "N/A"
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point, 2.00 mm diameter, SMD"
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "[None]"
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part Number" "Test Point, 2.00 mm"
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Vendor" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Vendor Part Number" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mass (g)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "RQjC (C/W)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "RQjC_top (C/W)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temp_max (C)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temp_min (C)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power Dissipation (W)" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Rate" ""
+			(at 101.6 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SAP Code" ""
+			(at 101.6 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1977,7 +2031,7 @@
 			)
 		)
 		(property "Full Value" "N/A"
-			(at 152.4 111.76 0)
+			(at 101.6 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1988,7 +2042,7 @@
 			)
 		)
 		(property "Internal Part Number" "MSC-000002"
-			(at 152.4 111.76 0)
+			(at 101.6 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2016,4 +2070,42 @@
 		)
 	)
 	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "alex-generic-pcba.kicad_wks")
+			(type worksheet)
+			(data |KLUv/WCICKUTANZcWSDwGD3QMXKnXDsbi32D46BqCV0fjg5wAa5Ts8AzOG+fClEASQBSADjz8IdA
+				NkfZ14Jy7Tz/cc5AJYwd+s2a/FrOQKFsT9nvT/4FACAg8EjvX4RRWh7Lbu7hPKsz/pr9OshwSSkR
+				M86+2H7ZSwVAQPCNTJ6tanZUCNnTiKCzI0WdsnZtf3XPO2a/GWvPdexojTTMZe3c228PfW+XhHNt
+				q/9612Etxghnz96uzxkjvGRjFwaxKPtz/c+y2rt6X/Pc4f9YlBfMZKOJdDyQxmNCUREopJB2lBKD
+				il5cK/+qc65pOB6Z11yEc0ZFaIZ/heScUdn/utaoj/2PJKKzZQM1accsy6JEFAB/8Uc2nf1hz5JW
+				/8k/AYFBUpiYiolhCFnhTDgXxCKWxiVSmUisRLNcfduG2XNCheTecmKkUMrN9ruHNoPDagCqGau/
+				dhl/OrtXM5pIppGym43DWSemLZVcc11WUyRMdHGg8TjHnJkZkSRJIR1gRMSMVefOA9oD7jgR0oZL
+				DFj6MS+/k3QFiJ3o4CnlV920ERiQRnqxs8AeaNy5YSbYcGSmLATMzV+SQ07OE8Puq1SHrmTIJyd1
+				RbsI7FchjHzHgviEfbhY9T7crRNfQ3uYrRSgivVDPF8yZdBoaH0yrVFa8B11Ow/QF5lVjg/ox0+q
+				1GyflUHaxNQfNQXSNOSyV+4juB7QWkt/ABDQHaZ6o0LRuxM8YO8e5VwtIJAEZjUrXfTWD+RtanBp
+				EAQyS0WSFKAtK64gAwLwpzcXPCSJsfWg8eqDwNez1G1QKYOiA+k2JOQyIsTP8cTeplebOk0f1vWB
+				YLjEGstGB+kY4Co=|
+			)
+			(checksum "C70BA5FC214A2E08357628030FD2CD6F")
+		)
+		(file
+			(name "alex-generic.kicad_wks")
+			(type worksheet)
+			(data |KLUv/WCICKUTANZcWSDwGD3QMXKnXDsbi32D46BqCV0fjg5wAa5Ts8AzOG+fClEASQBSADjz8IdA
+				NkfZ14Jy7Tz/cc5AJYwd+s2a/FrOQKFsT9nvT/4FACAg8EjvX4RRWh7Lbu7hPKsz/pr9OshwSSkR
+				M86+2H7ZSwVAQPCNTJ6tanZUCNnTiKCzI0WdsnZtf3XPO2a/GWvPdexojTTMZe3c228PfW+XhHNt
+				q/9612Etxghnz96uzxkjvGRjFwaxKPtz/c+y2rt6X/Pc4f9YlBfMZKOJdDyQxmNCUREopJB2lBKD
+				il5cK/+qc65pOB6Z11yEc0ZFaIZ/heScUdn/utaoj/2PJKKzZQM1accsy6JEFAB/8Uc2nf1hz5JW
+				/8k/AYFBUpiYiolhCFnhTDgXxCKWxiVSmUisRLNcfduG2XNCheTecmKkUMrN9ruHNoPDagCqGau/
+				dhl/OrtXM5pIppGym43DWSemLZVcc11WUyRMdHGg8TjHnJkZkSRJIR1gRMSMVefOA9oD7jgR0oZL
+				DFj6MS+/k3QFiJ3o4CnlV920ERiQRnqxs8AeaNy5YSbYcGSmLATMzV+SQ07OE8Puq1SHrmTIJyd1
+				RbsI7FchjHzHgviEfbhY9T7crRNfQ3uYrRSgivVDPF8yZdBoaH0yrVFa8B11Ow/QF5lVjg/ox0+q
+				1GyflUHaxNQfNQXSNOSyV+4juB7QWkt/ABDQHaZ6o0LRuxM8YO8e5VwtIJAEZjUrXfTWD+RtanBp
+				EAQyS0WSFKAtK64gAwLwpzcXPCSJsfWg8eqDwNez1G1QKYOiA+k2JOQyIsTP8cTeplebOk0f1vWB
+				YLjEGstGB+kY4Co=|
+			)
+			(checksum "C70BA5FC214A2E08357628030FD2CD6F")
+		)
+	)
 )

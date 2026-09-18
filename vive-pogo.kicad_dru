@@ -1,0 +1,10 @@
+(version 1)
+(rule "Front component to board edge"
+    (layer "F.Courtyard")
+    (constraint physical_clearance (min 1mm))
+    (condition "(B.Layer == 'Edge.Cuts') && (!A.hasComponentClass('Edge Connector'))"))
+
+(rule "Back component to board edge"
+    (layer "B.Courtyard")
+    (constraint physical_clearance (min 1mm))
+    (condition "(B.Layer == 'Edge.Cuts') && (!A.hasComponentClass('Edge Connector'))"))
