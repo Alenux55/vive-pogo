@@ -10,7 +10,6 @@ import argparse
 import csv
 from datetime import datetime
 import json
-import math
 import os
 from pathlib import Path
 import re
@@ -34,7 +33,7 @@ def filename_value(value: str) -> str:
 def create_bom(source: Path, target: Path, variables: dict, variant: str, published: datetime) -> None:
     from copy import copy
     import openpyxl
-    from openpyxl.styles import Alignment, Border, Font, Side
+    from openpyxl.styles import Alignment, Font
 
     with source.open(encoding="utf-8-sig", newline="") as stream:
         reader = csv.DictReader(stream)
@@ -44,6 +43,12 @@ def create_bom(source: Path, target: Path, variables: dict, variant: str, publis
 
     workbook = openpyxl.load_workbook(Path(__file__).with_name("BOM-template.xlsx"))
     sheet = workbook.active
+    for column, factor in (("E", 1.20), ("F", 1.75)):
+        dimension = sheet.column_dimensions[column]
+        baseline = dimension.width
+        if baseline is None:
+            baseline = sheet.sheet_format.defaultColWidth
+        dimension.width = (baseline if baseline is not None else 13.0) * factor
     if [sheet.cell(8, c).value for c in range(1, 7)] != HEADERS:
         raise ValueError("BOM template header changed; update field mapping before release")
 
@@ -58,7 +63,6 @@ def create_bom(source: Path, target: Path, variables: dict, variant: str, publis
         sheet[address].data_type = "s"
         sheet[address].number_format = "@"
 
-    edge = Side(style="thin", color="D9D9D9")
     for row_number, row in enumerate(rows, 9):
         for column, header in enumerate(HEADERS, 1):
             cell = sheet.cell(row_number, column)
@@ -69,13 +73,8 @@ def create_bom(source: Path, target: Path, variables: dict, variant: str, publis
             cell.font = Font(name="Calibri", size=11)
             cell.alignment = Alignment(vertical="top", wrap_text=True,
                                        horizontal="center" if column <= 2 else "left")
-            cell.border = Border(bottom=edge)
-        # Preserve template column widths; allow long part descriptions/designators to wrap.
-        # line_count = max(
-            # max(1, math.ceil(len(row[header]) / max(5, sheet.column_dimensions[chr(64 + col)].width - 2)))
-            # for col, header in enumerate(HEADERS, 1)
-        # )
-        # sheet.row_dimensions[row_number].height = max(18, 15 * line_count + 4)
+            cell.border = copy(sheet.cell(8, column).border)
+        # Leave wrapped item rows eligible for the spreadsheet reader's AutoFit.
         sheet.row_dimensions[row_number].height = None
 
     for col in range(1, 7):
@@ -105,7 +104,7 @@ def merge_assembly(top: Path, bottom: Path, target: Path, title: str) -> None:
         writer.write(stream)
 
 
-def finalize(kind: str, variant_name: str = "") -> list[Path]:
+def jobset_work_root() -> Path:
     project_root = Path(__file__).resolve().parent.parent
     temporary = os.environ.get("JOBSET_OUTPUT_WORK_PATH")
     if not temporary:
@@ -113,6 +112,35 @@ def finalize(kind: str, variant_name: str = "") -> list[Path]:
     root = Path(temporary).resolve(strict=True)
     if root == project_root or root in project_root.parents or project_root in root.parents:
         raise RuntimeError("Formatter output must be KiCad's temporary destination, outside source")
+    return root
+
+
+def prepare_assembly_worksheets() -> None:
+    root = jobset_work_root()
+    project_root = Path(__file__).resolve().parent.parent
+    library = Path(os.environ.get("KICAD_LIB_ROOT") or project_root.parent / "kicad-lib")
+    source = library / "drawing-sheets" / "alex-generic-pcba.kicad_wks"
+    if not source.is_file():
+        raise FileNotFoundError(f"Canonical PCBA worksheet missing: {source}. "
+                                "Set KICAD_LIB_ROOT to the shared kicad-lib checkout.")
+    # Read once so both views use the same snapshot, even if the library is edited.
+    # Bytes preserve encoding, BOM and line endings; all other variables stay native.
+    content = source.read_bytes()
+    if b"${#}" not in content or b"${##}" not in content:
+        raise ValueError("Canonical worksheet must contain ${#} and ${##} page tokens")
+    work = root / "_work"
+    work.mkdir(exist_ok=True)
+    for page, view in ((1, "top"), (2, "bottom")):
+        target = work / f"assembly-{view}.kicad_wks"
+        # Exclusive creation prevents following a pre-existing target/symlink.
+        with target.open("xb") as stream:
+            stream.write(content.replace(b"${##}", b"2").replace(b"${#}", str(page).encode()))
+    print(f"Prepared assembly worksheets from {source.resolve()}")
+
+
+def finalize(kind: str, variant_name: str = "") -> list[Path]:
+    project_root = Path(__file__).resolve().parent.parent
+    root = jobset_work_root()
     projects = list(project_root.glob("*.kicad_pro"))
     if len(projects) != 1:
         raise RuntimeError("Expected exactly one KiCad project alongside the canonical Jobset")
@@ -159,6 +187,9 @@ def finalize(kind: str, variant_name: str = "") -> list[Path]:
 
     for name in inputs:
         (work / name).unlink()
+    if kind == "assembly":
+        for view in ("top", "bottom"):
+            (work / f"assembly-{view}.kicad_wks").unlink(missing_ok=True)
     work.rmdir()
     for path in result:
         print(f"Created {path.relative_to(root).as_posix()}")
@@ -167,11 +198,14 @@ def finalize(kind: str, variant_name: str = "") -> list[Path]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--kind", choices=("fabrication", "assembly"), required=True)
+    parser.add_argument("--kind", choices=("fabrication", "assembly", "prepare-assembly"), required=True)
     parser.add_argument("--variant", default="", help="Empty selects the base design, labelled No Variant")
     args = parser.parse_args()
     try:
-        finalize(args.kind, args.variant)
+        if args.kind == "prepare-assembly":
+            prepare_assembly_worksheets()
+        else:
+            finalize(args.kind, args.variant)
     except Exception as error:
         print(f"Output formatting failed: {error}", file=sys.stderr)
         return 1

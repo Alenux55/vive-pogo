@@ -58,6 +58,45 @@ class FormattingTests(unittest.TestCase):
             self.assertEqual(sheet["D9"].data_type, "s")
             self.assertEqual(sheet["F9"].value, "00123")
             self.assertIn("A1:C1", str(sheet.merged_cells))
+            template = openpyxl.load_workbook(Path(formatter.__file__).with_name("BOM-template.xlsx")).active
+            for column, factor in (("E", 1.20), ("F", 1.75)):
+                self.assertAlmostEqual(sheet.column_dimensions[column].width,
+                                       template.column_dimensions[column].width * factor)
+            self.assertIsNone(sheet.row_dimensions[9].height)
+            self.assertFalse(sheet.row_dimensions[9].customHeight)
+            self.assertTrue(all(sheet.cell(9, c).alignment.wrap_text for c in range(1, 7)))
+            self.assertEqual(sheet.row_dimensions[8].height, 30)
+            self.assertEqual(sheet.print_title_rows, "$1:$8")
+            self.assertIn("$A$1:$F$9", sheet.print_area)
+            self.assertEqual(sheet.page_setup.fitToWidth, 1)
+            self.assertEqual(sheet.page_setup.fitToHeight, 0)
+
+    def test_numbered_worksheets_only_replace_counters(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            library = root / "library"
+            sheets = library / "drawing-sheets"
+            sheets.mkdir(parents=True)
+            source = sheets / "alex-generic-pcba.kicad_wks"
+            original = b'\xef\xbb\xbf(kicad_wks (tbtext "${#}/${##} ${VARIANT} ${ProjectTitle}"))\r\n'
+            source.write_bytes(original)
+            work = root / "output"
+            work.mkdir()
+            with patch.dict(os.environ, KICAD_LIB_ROOT=str(library), JOBSET_OUTPUT_WORK_PATH=str(work)):
+                formatter.prepare_assembly_worksheets()
+                for page, view in ((1, "top"), (2, "bottom")):
+                    self.assertEqual((work / f"_work/assembly-{view}.kicad_wks").read_bytes(),
+                                     original.replace(b"${##}", b"2").replace(b"${#}", str(page).encode()))
+                self.assertEqual(source.read_bytes(), original)
+                # A stale or redirected target cannot be silently overwritten.
+                with self.assertRaises(FileExistsError):
+                    formatter.prepare_assembly_worksheets()
+
+    def test_missing_canonical_worksheet_fails(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.dict(os.environ, KICAD_LIB_ROOT=directory, JOBSET_OUTPUT_WORK_PATH=directory):
+                with self.assertRaisesRegex(FileNotFoundError, "KICAD_LIB_ROOT"):
+                    formatter.prepare_assembly_worksheets()
 
     def test_rejects_unexpected_bom_schema(self):
         with tempfile.TemporaryDirectory() as directory:

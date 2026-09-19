@@ -547,7 +547,7 @@
       "step": "vive-pogo.step",
       "vrml": ""
     },
-    "page_layout_descr_file": "${KIPRJMOD}/DrawingSheets/Assembly-Bottom.kicad_wks"
+    "page_layout_descr_file": "${JOBSET_OUTPUT_WORK_PATH}/_work/assembly-bottom.kicad_wks"
   },
   "schematic": {
     "annotate_start_num": 0,
