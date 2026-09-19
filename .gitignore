@@ -16,11 +16,17 @@ output/
 outputs/
 gerbers/
 fab/
-fabrication/
-assembly/
+Releases/
+
+# Remove library content
+RemoteLibrary/
 
 # OS/editor noise
 .DS_Store
 Thumbs.db
 *.swp
 *.tmp
+
+# Python formatter/test caches
+__pycache__/
+*.pyc

@@ -1,0 +1,412 @@
+{
+  "meta": {
+    "version": 1
+  },
+  "jobs": [
+    {
+      "id": "07b2f2d5-672f-462c-b91e-168b6d1eaed6",
+      "type": "sch_erc",
+      "description": "ERC - errors and warnings block release",
+      "settings": {
+        "output_filename": "Checks/${PROJECTNAME}-ERC.rpt",
+        "format": "report",
+        "severity": 48,
+        "fail_on_error": true,
+        "units": "mm"
+      }
+    },
+    {
+      "id": "361d5f06-e067-4dcc-986b-1542e60c5637",
+      "type": "pcb_drc",
+      "description": "DRC with schematic parity - errors and warnings block release",
+      "settings": {
+        "output_filename": "Checks/${PROJECTNAME}-DRC.rpt",
+        "format": "report",
+        "severity": 48,
+        "fail_on_error": true,
+        "units": "mm",
+        "parity": true,
+        "refill_zones": false,
+        "save_board": false,
+        "report_all_track_errors": true
+      }
+    },
+    {
+      "id": "ef85dda8-7647-42e4-bec5-b04a088a4a4f",
+      "type": "pcb_export_pdf",
+      "description": "PCB fabrication reference - 1:1",
+      "settings": {
+        "black_and_white": true,
+        "plot_drawing_sheet": true,
+        "plot_ref_des": true,
+        "plot_footprint_values": false,
+        "plot_pad_numbers": false,
+        "drill_shape": "none",
+        "mirror": false,
+        "negative": false,
+        "scale": 1.0,
+        "pdf_gen_mode": "all-layers-one-file",
+        "pdf_metadata": true,
+        "front_fp_property_popups": false,
+        "back_fp_property_popups": false,
+        "layers_to_include_on_all_layers": [],
+        "use_drill_origin": false,
+        "check_zones": false,
+        "variant": "",
+        "output_filename": "_work/fabrication.pdf",
+        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Fabrication.kicad_wks",
+        "layers": [
+          "F.Cu",
+          "Edge.Cuts",
+          "User.1"
+        ]
+      }
+    },
+    {
+      "id": "370f80e4-c3f0-4462-a7e7-1e756c2f1e23",
+      "type": "pcb_export_gerbers",
+      "description": "Physical CAM plus separate documentation layers - all enabled copper",
+      "settings": {
+        "black_and_white": true,
+        "plot_drawing_sheet": false,
+        "plot_ref_des": true,
+        "plot_footprint_values": true,
+        "plot_pad_numbers": false,
+        "drill_shape": "none",
+        "mirror": false,
+        "negative": false,
+        "layers_to_include_on_all_layers": [],
+        "use_drill_origin": true,
+        "check_zones": false,
+        "variant": "",
+        "use_protel_file_extension": true,
+        "use_x2_format": true,
+        "include_netlist_attributes": true,
+        "disable_aperture_macros": false,
+        "precision": 6,
+        "create_gerber_job_file": true,
+        "output_filename": "${ProjectTitle} R${ProjectPCBRevision} CAM/",
+        "layers": [
+          "F.Cu",
+          "In1.Cu",
+          "In2.Cu",
+          "In3.Cu",
+          "In4.Cu",
+          "In5.Cu",
+          "In6.Cu",
+          "In7.Cu",
+          "In8.Cu",
+          "In9.Cu",
+          "In10.Cu",
+          "In11.Cu",
+          "In12.Cu",
+          "In13.Cu",
+          "In14.Cu",
+          "In15.Cu",
+          "In16.Cu",
+          "In17.Cu",
+          "In18.Cu",
+          "In19.Cu",
+          "In20.Cu",
+          "In21.Cu",
+          "In22.Cu",
+          "In23.Cu",
+          "In24.Cu",
+          "In25.Cu",
+          "In26.Cu",
+          "In27.Cu",
+          "In28.Cu",
+          "In29.Cu",
+          "In30.Cu",
+          "B.Cu",
+          "F.Mask",
+          "B.Mask",
+          "F.Paste",
+          "B.Paste",
+          "F.SilkS",
+          "B.SilkS",
+          "Edge.Cuts",
+          "User.1",
+          "User.2",
+          "User.3"
+        ]
+      }
+    },
+    {
+      "id": "cb10cec6-f2ff-4863-a315-bd322eef38d8",
+      "type": "pcb_export_drill",
+      "description": "Native layer-pair NC drills, Gerber maps and drill report",
+      "settings": {
+        "output_dir": "${ProjectTitle} R${ProjectPCBRevision} CAM/Drill/",
+        "format": "excellon",
+        "units": "mm",
+        "drill_origin": "plot",
+        "zero_format": "decimal",
+        "excellon.combine_pth_npth": false,
+        "excellon.mirror_y": false,
+        "excellon.minimal_header": false,
+        "excellon.oval_drill_route": true,
+        "generate_map": true,
+        "map_format": "gerberx2",
+        "generate_report": true,
+        "report_filename": "${ProjectTitle} R${ProjectPCBRevision} CAM/Drill/${PROJECTNAME}-Drill.rpt"
+      }
+    },
+    {
+      "id": "e919d151-d093-47f4-858f-172e02dbc248",
+      "type": "pcb_export_3d",
+      "description": "Full mechanical envelope - include all defined models including DNP",
+      "settings": {
+        "format": "step",
+        "overwrite": true,
+        "board_only": false,
+        "export_board_body": true,
+        "export_components": true,
+        "include_unspecified": true,
+        "include_dnp": true,
+        "subst_models": true,
+        "optimize_step": true,
+        "use_drill_origin": true,
+        "use_grid_origin": false,
+        "use_defined_origin": false,
+        "use_pcb_center_origin": false,
+        "export_silkscreen": false,
+        "export_soldermask": false,
+        "variant": "",
+        "component_filter": "",
+        "output_filename": "_work/envelope.step"
+      }
+    },
+    {
+      "id": "3474565a-b139-4233-8ff9-4febf283913e",
+      "type": "sch_export_bom",
+      "description": "No Variant assembly BOM - purchasable part grouping",
+      "settings": {
+        "output_filename": "_work/bom.csv",
+        "fields_ordered": [
+          "${ITEM_NUMBER}",
+          "${QUANTITY}",
+          "Reference",
+          "Description",
+          "Manufacturer",
+          "Manufacturer Part Number"
+        ],
+        "fields_labels": [
+          "Line #",
+          "Quantity",
+          "Designator",
+          "Description",
+          "Manufacturer",
+          "Manufacturer Part Number"
+        ],
+        "fields_group_by": [
+          "Manufacturer",
+          "Manufacturer Part Number"
+        ],
+        "group_symbols": true,
+        "exclude_dnp": true,
+        "field_delimiter": ",",
+        "string_delimiter": "\"",
+        "ref_delimiter": ",",
+        "ref_range_delimiter": "",
+        "sort_field": "Reference",
+        "sort_asc": true,
+        "filter_string": "",
+        "bom_preset_name": "",
+        "bom_format_preset_name": "",
+        "variant_names": []
+      }
+    },
+    {
+      "id": "22baea93-7401-4e82-b045-65df6114bda3",
+      "type": "sch_export_plot_pdf",
+      "description": "No Variant PCBA schematic",
+      "settings": {
+        "format": "pdf",
+        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Assembly.kicad_wks",
+        "black_and_white": true,
+        "use_background_color": false,
+        "plot_drawing_sheet": true,
+        "plot_all": true,
+        "pdf_metadata": true,
+        "pdf_hierarchical_links": true,
+        "pdf_property_popups": true,
+        "variant_name": "",
+        "variant_names": [],
+        "output_filename": "_work/schematic.pdf"
+      }
+    },
+    {
+      "id": "6c1e9d6a-b3a4-434c-bffc-88ee83fe814b",
+      "type": "pcb_export_pdf",
+      "description": "No Variant assembly Top - 1:1",
+      "settings": {
+        "black_and_white": true,
+        "plot_drawing_sheet": true,
+        "plot_ref_des": true,
+        "plot_footprint_values": false,
+        "plot_pad_numbers": false,
+        "drill_shape": "none",
+        "mirror": false,
+        "negative": false,
+        "scale": 1.0,
+        "pdf_gen_mode": "all-layers-one-file",
+        "pdf_metadata": true,
+        "front_fp_property_popups": false,
+        "back_fp_property_popups": false,
+        "layers_to_include_on_all_layers": [],
+        "use_drill_origin": false,
+        "check_zones": false,
+        "variant": "",
+        "output_filename": "_work/assembly-top.pdf",
+        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Assembly-Top.kicad_wks",
+        "layers": [
+          "F.Fab",
+          "Edge.Cuts"
+        ],
+        "crossout_dnp_footprints_on_fab_layers": true,
+        "hide_dnp_footprints_on_fab_layers": false,
+        "sketch_dnp_footprints_on_fab_layers": true,
+        "sketch_pads_on_fab_layers": false
+      }
+    },
+    {
+      "id": "f7b1ab4a-9bba-4d48-9ca0-03ce1d899195",
+      "type": "pcb_export_pdf",
+      "description": "No Variant assembly Bottom - 1:1",
+      "settings": {
+        "black_and_white": true,
+        "plot_drawing_sheet": true,
+        "plot_ref_des": true,
+        "plot_footprint_values": false,
+        "plot_pad_numbers": false,
+        "drill_shape": "none",
+        "mirror": true,
+        "negative": false,
+        "scale": 1.0,
+        "pdf_gen_mode": "all-layers-one-file",
+        "pdf_metadata": true,
+        "front_fp_property_popups": false,
+        "back_fp_property_popups": false,
+        "layers_to_include_on_all_layers": [],
+        "use_drill_origin": false,
+        "check_zones": false,
+        "variant": "",
+        "output_filename": "_work/assembly-bottom.pdf",
+        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Assembly-Bottom.kicad_wks",
+        "layers": [
+          "B.Fab",
+          "Edge.Cuts"
+        ],
+        "crossout_dnp_footprints_on_fab_layers": true,
+        "hide_dnp_footprints_on_fab_layers": false,
+        "sketch_dnp_footprints_on_fab_layers": true,
+        "sketch_pads_on_fab_layers": false
+      }
+    },
+    {
+      "id": "a108c9ff-298b-4ac8-971b-2386ecd0c4b2",
+      "type": "pcb_export_3d",
+      "description": "No Variant assembly 3D PDF - omit DNP",
+      "settings": {
+        "format": "pdf",
+        "overwrite": true,
+        "board_only": false,
+        "export_board_body": true,
+        "export_components": true,
+        "include_unspecified": true,
+        "include_dnp": false,
+        "subst_models": true,
+        "optimize_step": true,
+        "use_drill_origin": true,
+        "use_grid_origin": false,
+        "use_defined_origin": false,
+        "use_pcb_center_origin": false,
+        "export_silkscreen": true,
+        "export_soldermask": true,
+        "variant": "",
+        "component_filter": "",
+        "output_filename": "_work/assembly-3d.pdf"
+      }
+    },
+    {
+      "id": "2246626d-328e-4a0f-9f54-71596c4d87a7",
+      "type": "pcb_export_pos",
+      "description": "No Variant assembly placements - retain mixed-technology connectors",
+      "settings": {
+        "output_filename": "_work/positions.csv",
+        "format": "csv",
+        "units": "mm",
+        "side": "both",
+        "single_file": true,
+        "use_drill_place_file_origin": true,
+        "negate_bottom_x": false,
+        "smd_only": false,
+        "exclude_footprints_with_th": false,
+        "exclude_dnp": true,
+        "exclude_bom": true,
+        "variant": ""
+      }
+    },
+    {
+      "id": "73dcfab1-0e67-43c3-a3ca-bb9b6df078fd",
+      "type": "special_execute",
+      "description": "Finalize fabrication files inside Prism destination",
+      "settings": {
+        "command": "python \"${KIPRJMOD}/Workflow/finalize_outputs.py\" --kind fabrication",
+        "ignore_exit_code": false,
+        "record_output": true,
+        "output_filename": "Checks/fabrication-format.log"
+      }
+    },
+    {
+      "id": "f05ec219-e21a-4d08-83af-6599995b23a4",
+      "type": "special_execute",
+      "description": "Finalize assembly files inside Prism destination",
+      "settings": {
+        "command": "python \"${KIPRJMOD}/Workflow/finalize_outputs.py\" --kind assembly",
+        "ignore_exit_code": false,
+        "record_output": true,
+        "output_filename": "Checks/assembly-format.log"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "9e5c254b-cb26-4a49-beea-fa7af8a62903",
+      "description": "Fabrication (Prism Manufacturing)",
+      "type": "folder",
+      "only": [
+        "07b2f2d5-672f-462c-b91e-168b6d1eaed6",
+        "361d5f06-e067-4dcc-986b-1542e60c5637",
+        "ef85dda8-7647-42e4-bec5-b04a088a4a4f",
+        "370f80e4-c3f0-4462-a7e7-1e756c2f1e23",
+        "cb10cec6-f2ff-4863-a315-bd322eef38d8",
+        "e919d151-d093-47f4-858f-172e02dbc248",
+        "73dcfab1-0e67-43c3-a3ca-bb9b6df078fd"
+      ],
+      "settings": {
+        "output_path": "Releases/Fabrication"
+      }
+    },
+    {
+      "id": "28dab1d3-7bf2-4d8a-9723-bcdd14e1d814",
+      "description": "Assembly (Prism Design)",
+      "type": "folder",
+      "only": [
+        "07b2f2d5-672f-462c-b91e-168b6d1eaed6",
+        "361d5f06-e067-4dcc-986b-1542e60c5637",
+        "3474565a-b139-4233-8ff9-4febf283913e",
+        "22baea93-7401-4e82-b045-65df6114bda3",
+        "6c1e9d6a-b3a4-434c-bffc-88ee83fe814b",
+        "f7b1ab4a-9bba-4d48-9ca0-03ce1d899195",
+        "a108c9ff-298b-4ac8-971b-2386ecd0c4b2",
+        "2246626d-328e-4a0f-9f54-71596c4d87a7",
+        "f05ec219-e21a-4d08-83af-6599995b23a4"
+      ],
+      "settings": {
+        "output_path": "Releases/Assembly"
+      }
+    }
+  ]
+}

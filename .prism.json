@@ -1,0 +1,9 @@
+{
+  "project_name": "VIVE Pogo Board",
+  "schematic": "vive-pogo.kicad_sch",
+  "pcb": "vive-pogo.kicad_pcb",
+  "jobset": "Outputs.kicad_jobset",
+  "designOutputs": "Releases/Assembly",
+  "manufacturingOutputs": "Releases/Fabrication",
+  "readme": "README.md"
+}
