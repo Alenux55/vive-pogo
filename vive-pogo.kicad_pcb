@@ -34,8 +34,8 @@
 		(35 "F.Fab" user)
 		(33 "B.Fab" user)
 		(39 "User.1" user "Fab_Notes")
-		(41 "User.2" user "Router_VCut_Panel")
-		(43 "User.3" user "Fab_Title_Block")
+		(41 "User.2" user)
+		(43 "User.3" user)
 		(45 "User.4" user)
 	)
 	(setup
@@ -2375,7 +2375,7 @@
 		(uuid "615b638c-88cf-40ca-993a-c98705f06982")
 	)
 	(gr_text "${ProjectTitle} R${ProjectPCBRevision}\n${ProjectPCBReleaseDate}"
-		(at 154.8 102.05 0)
+		(at 154.15 102.1 0)
 		(layer "B.SilkS")
 		(uuid "bf149ec7-eff9-4aa4-889f-25e7d425f209")
 		(effects
@@ -2387,7 +2387,7 @@
 		)
 	)
 	(gr_text "GND"
-		(at 145 93.65 0)
+		(at 143.15 93.75 0)
 		(layer "B.SilkS")
 		(uuid "b98d52b1-4fcf-4516-8b17-bcade6326791")
 		(effects
@@ -2399,7 +2399,7 @@
 		)
 	)
 	(gr_text "VCC"
-		(at 145 96.8 0)
+		(at 143.15 97.05 0)
 		(layer "B.SilkS")
 		(uuid "d3496ea0-b2dc-4df6-a1c6-38aa4ddde8b2")
 		(effects
