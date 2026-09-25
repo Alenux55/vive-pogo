@@ -11,13 +11,6 @@
 .history/
 *-backups/
 
-# Generated manufacturing/output folders
-output/
-outputs/
-gerbers/
-fab/
-Releases/
-
 # Individual output files
 *.step
 !RemoteLibrary/**/*.step
