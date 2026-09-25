@@ -20,9 +20,7 @@ Releases/
 
 # Individual output files
 *.step
-
-# Remove library content
-RemoteLibrary/
+!RemoteLibrary/**/*.step
 
 # OS/editor noise
 .DS_Store

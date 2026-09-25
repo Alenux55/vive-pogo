@@ -110,8 +110,11 @@ The inspected Prism Compose configuration has no dedicated shared-library mount;
 that deployment setup is required and was not applied here. There is no download,
 embedded-sheet fallback or independently maintained copy.
 
-Native Execute Command jobs launch the shared `release-workflow/finalize_outputs.py`
-through the portable Python command before any export that needs a drawing sheet. The
+Native Execute Command jobs load the dependency-free shared
+`release-workflow/run_finalize.py` launcher before any export that needs a drawing
+sheet. On Windows the launcher delegates to `py -3.14`; on Linux/macOS it delegates
+to its current interpreter. In both cases that child runs `finalize_outputs.py` with
+the original arguments. The
 `prepare-fabrication` job copies the canonical PCB sheet to
 `${JOBSET_OUTPUT_WORK_PATH}/_work/fabrication.kicad_wks`; both the fabrication
 PDF and documentation Gerbers use that temporary copy. The `prepare-assembly`
@@ -266,7 +269,8 @@ python -m unittest discover -s "/absolute/path/to/kicad-lib/release-workflow" -p
 Validated on 2026-09-18: 7/7 fabrication and 10/10 assembly jobs passed. Both merged
 PDF pages were rendered and view order, numbering and readable title text checked.
 XLSX metadata, rows and numeric/text/date types were verified after reopening,
-and rendered against the template. Fifteen formatter tests cover merge order,
+and rendered against the template. Seventeen formatter tests cover launcher
+interpreter/argument behavior, merge order,
 metadata/types, literal text, missing exports, schema mismatch and context/path
 guards, exact worksheet substitutions, missing canonical sheets and targeted U3D
 pad-material replacement. Saved XLSX
