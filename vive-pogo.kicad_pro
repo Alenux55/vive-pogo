@@ -547,7 +547,7 @@
       "step": "vive-pogo.step",
       "vrml": ""
     },
-    "page_layout_descr_file": "${JOBSET_OUTPUT_WORK_PATH}/_work/assembly-bottom.kicad_wks"
+    "page_layout_descr_file": "${JOBSET_OUTPUT_WORK_PATH}/_work/assembly-top.kicad_wks"
   },
   "schematic": {
     "annotate_start_num": 0,
@@ -690,10 +690,10 @@
   ],
   "text_variables": {
     "ProjectEngineer": "Alex Naylor",
-    "ProjectPCBAReleaseDate": "2026-09-24",
+    "ProjectPCBAReleaseDate": "2026-09-25",
     "ProjectPCBARevision": "1.0",
     "ProjectPCBDesigner": "Alex Naylor",
-    "ProjectPCBReleaseDate": "2026-09-24",
+    "ProjectPCBReleaseDate": "2026-09-25",
     "ProjectPCBRevision": "1.0",
     "ProjectTitle": "VIVE Pogo Board"
   },

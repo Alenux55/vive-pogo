@@ -31,6 +31,18 @@
       "type": "pcb_drc"
     },
     {
+      "description": "Prepare fabrication worksheet from canonical PCB library sheet",
+      "id": "4c26ee47-9328-4a41-8db0-f688d56c1852",
+      "settings": {
+        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind prepare-fabrication",
+        "description": "",
+        "ignore_exit_code": false,
+        "output_filename": "Checks/fabrication-worksheet.log",
+        "record_output": true
+      },
+      "type": "special_execute"
+    },
+    {
       "description": "PCB fabrication reference - 1:1",
       "id": "ef85dda8-7647-42e4-bec5-b04a088a4a4f",
       "settings": {
@@ -41,7 +53,7 @@
         "color_theme": "",
         "crossout_dnp_footprints_on_fab_layers": true,
         "description": "",
-        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Fabrication.kicad_wks",
+        "drawing_sheet": "${JOBSET_OUTPUT_WORK_PATH}/_work/fabrication.kicad_wks",
         "drill_shape": "none",
         "front_fp_property_popups": false,
         "hide_dnp_footprints_on_fab_layers": false,
@@ -185,7 +197,7 @@
         "crossout_dnp_footprints_on_fab_layers": true,
         "description": "",
         "disable_aperture_macros": false,
-        "drawing_sheet": "",
+        "drawing_sheet": "${JOBSET_OUTPUT_WORK_PATH}/_work/fabrication.kicad_wks",
         "drill_shape": "full",
         "hide_dnp_footprints_on_fab_layers": false,
         "include_netlist_attributes": true,
@@ -351,13 +363,25 @@
       "type": "sch_export_bom"
     },
     {
+      "description": "Prepare numbered worksheets from canonical PCBA library sheet",
+      "id": "ae0442f0-bf5c-4f3e-9b41-7bd69998a7e9",
+      "settings": {
+        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind prepare-assembly",
+        "description": "",
+        "ignore_exit_code": false,
+        "output_filename": "Checks/assembly-worksheets.log",
+        "record_output": true
+      },
+      "type": "special_execute"
+    },
+    {
       "description": "No Variant PCBA schematic",
       "id": "22baea93-7401-4e82-b045-65df6114bda3",
       "settings": {
         "black_and_white": true,
         "color_theme": "",
         "description": "",
-        "drawing_sheet": "${KIPRJMOD}/DrawingSheets/Assembly.kicad_wks",
+        "drawing_sheet": "${JOBSET_OUTPUT_WORK_PATH}/_work/schematic.kicad_wks",
         "format": "pdf",
         "min_pen_width": 847,
         "output_filename": "_work/schematic.pdf",
@@ -373,18 +397,6 @@
         "variant_names": []
       },
       "type": "sch_export_plot_pdf"
-    },
-    {
-      "description": "Prepare numbered worksheets from canonical PCBA library sheet",
-      "id": "ae0442f0-bf5c-4f3e-9b41-7bd69998a7e9",
-      "settings": {
-        "command": "py -3.14 \"${KIPRJMOD}/Workflow/finalize_outputs.py\" --kind prepare-assembly",
-        "description": "",
-        "ignore_exit_code": false,
-        "output_filename": "Checks/assembly-worksheets.log",
-        "record_output": true
-      },
-      "type": "special_execute"
     },
     {
       "description": "No Variant assembly Top - 1:1",
@@ -532,7 +544,7 @@
       "description": "Finalize fabrication files inside Prism destination",
       "id": "73dcfab1-0e67-43c3-a3ca-bb9b6df078fd",
       "settings": {
-        "command": "py -3.14 \"${KIPRJMOD}/Workflow/finalize_outputs.py\" --kind fabrication",
+        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind fabrication",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/fabrication-format.log",
@@ -544,7 +556,7 @@
       "description": "Finalize assembly files inside Prism destination",
       "id": "f05ec219-e21a-4d08-83af-6599995b23a4",
       "settings": {
-        "command": "py -3.14 \"${KIPRJMOD}/Workflow/finalize_outputs.py\" --kind assembly",
+        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind assembly",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/assembly-format.log",
@@ -562,6 +574,7 @@
       "id": "9e5c254b-cb26-4a49-beea-fa7af8a62903",
       "only": [
         "361d5f06-e067-4dcc-986b-1542e60c5637",
+        "4c26ee47-9328-4a41-8db0-f688d56c1852",
         "ef85dda8-7647-42e4-bec5-b04a088a4a4f",
         "370f80e4-c3f0-4462-a7e7-1e756c2f1e23",
         "2fc9a62e-987b-4936-9260-160ab6b0374a",
@@ -580,8 +593,8 @@
       "only": [
         "07b2f2d5-672f-462c-b91e-168b6d1eaed6",
         "3474565a-b139-4233-8ff9-4febf283913e",
-        "22baea93-7401-4e82-b045-65df6114bda3",
         "ae0442f0-bf5c-4f3e-9b41-7bd69998a7e9",
+        "22baea93-7401-4e82-b045-65df6114bda3",
         "6c1e9d6a-b3a4-434c-bffc-88ee83fe814b",
         "a108c9ff-298b-4ac8-971b-2386ecd0c4b2",
         "2246626d-328e-4a0f-9f54-71596c4d87a7",

@@ -15,13 +15,14 @@ been verified. Use the validated KiCad version for matching output behavior.
 The formatter requires Python 3.10+ available as `python`, with:
 
 ```text
-python -m pip install -r Workflow/requirements.txt
+python -m pip install -r %KICAD_LIB_ROOT%/release-workflow/requirements.txt
 ```
 
 Install into the worker interpreter once, not on each release. The pinned
 packages are openpyxl 3.1.5 and pypdf 6.10.0. Prism's Dockerfile places
 `/app/venv/bin` on PATH; install there, for example with `uv pip install --python
-/app/venv/bin/python -r Workflow/requirements.txt` in the deployed image.
+/app/venv/bin/python -r
+$KICAD_LIB_ROOT/release-workflow/requirements.txt` in the deployed image.
 Local validation used an existing environment containing those exact packages.
 No deployment or automatic package installation is performed by this project.
 
@@ -45,14 +46,14 @@ commit/push problems may appear as warnings after successful generation. This
 Prism version has no immutable approved-release record. Run from the intended
 synchronized source revision without unrelated changes: it stages the checkout.
 
-There are **15 unique jobs**. Fabrication runs DRC, four native exports and
-a formatter (6 jobs). Assembly runs ERC, six native exports and a formatter
+There are **16 unique jobs**. Fabrication runs DRC, worksheet preparation, four native exports and
+a formatter (7 jobs). Assembly runs ERC, six native exports and a formatter
 (9 jobs, including worksheet preparation). One run produces **22 fabrication files and 8 assembly files**.
 
 ```text
 Releases/
   Fabrication/
-    Checks/                         DRC, formatter log
+    Checks/                         DRC, worksheet preparation and formatter logs
     <title> R<PCB rev> FAB - No Variant (<date> <time>).pdf
     <title> R<PCB rev> STEP - No Variant (<date> <time>).step
     <title> R<PCB rev> CAM/
@@ -97,30 +98,39 @@ metadata references the PCB revision so the native Gerber job file also receives
 
 ## Assembly PDF and BOM
 
-Worksheet lookup uses `KICAD_LIB_ROOT` when set, otherwise the `kicad-lib`
-directory beside the project checkout. Locally this resolves to
+The Windows Execute Command jobs resolve the shared formatter through the
+`%KICAD_LIB_ROOT%` user environment variable, while the formatter uses the same
+`KICAD_LIB_ROOT` value for shared assets. Locally this is set to
+`E:/Documents/GitHub/kicad-lib`, so the worksheet resolves to
 `E:/Documents/GitHub/kicad-lib/drawing-sheets/alex-generic-pcba.kicad_wks`.
 For Prism, make the shared library available to the worker (preferably read-only)
-and set `KICAD_LIB_ROOT` to its container path, or use the same sibling layout.
+and set `KICAD_LIB_ROOT` to its container path.
 The inspected Prism Compose configuration has no dedicated shared-library mount;
 that deployment setup is required and was not applied here. There is no download,
 embedded-sheet fallback or independently maintained copy.
 
-One native Execute Command job runs `Workflow/finalize_outputs.py --kind
-prepare-assembly` immediately before the Top/Bottom export jobs. It reads the
-canonical file once as bytes and creates two exclusive temporary files under
-`${JOBSET_OUTPUT_WORK_PATH}/_work/`: `assembly-top.kicad_wks` and
-`assembly-bottom.kicad_wks`. It replaces `${##}` with 2 first, then `${#}` with
-1 or 2. Every other byte, including variables and line endings, is preserved.
-Both files are ready before Top is exported; Bottom then uses its own copy.
+Native Execute Command jobs run `%KICAD_LIB_ROOT%/release-workflow/
+finalize_outputs.py` before any export that needs a drawing sheet. The
+`prepare-fabrication` job copies the canonical PCB sheet to
+`${JOBSET_OUTPUT_WORK_PATH}/_work/fabrication.kicad_wks`; both the fabrication
+PDF and documentation Gerbers use that temporary copy. The `prepare-assembly`
+job reads the canonical schematic and PCBA sheets and creates temporary schematic,
+Top and optional Bottom worksheets in the same `_work` directory. The schematic
+uses `alex-generic-sch.kicad_wks` and substitutes page 1/1; the assembly drawings
+use `alex-generic-pcba.kicad_wks`. Top is always created; Bottom is created only when
+its job is enabled. Assembly drawing copies replace `${##}` with the enabled
+page count, then `${#}` with the current page; schematic and assembly copies
+replace `${VARIANT}` with the resolved display name. Every other byte, including
+the remaining variables and line endings, is preserved.
 The native export mirror/layer settings and pypdf merge/bookmarks are unchanged.
-Successful finalization removes both generated worksheets before KiCad collects
+Successful finalization removes all generated worksheets before KiCad collects
 the destination. On failure any remnants are confined to KiCad's temporary area.
 The canonical file is only ever opened for reading, and pre-existing generated
 targets are rejected rather than overwritten. No source worksheet is rewritten.
 
-The canonical worksheet controls its own labels: it currently uses
-`${ProjectPCBAReleaseDate}` rather than the generation clock and contains no
+The canonical worksheets control their own labels. An empty KiCad variant is
+written as `No Variant`; a named variant such as `Default` retains its name. They currently use
+`${ProjectPCBAReleaseDate}` rather than the generation clock and contain no
 Top/Bottom label. Page counters and PDF bookmarks identify the two views.
 
 The **single ASY PDF has Top on page 1 and Bottom on page 2**, with bookmarks,
@@ -130,18 +140,19 @@ so Top is numbered 1/1, and the formatter publishes the native one-page Top PDF
 without rewriting it. The Top drawing remains required. Native jobs plot F.Fab + Edge.Cuts and B.Fab +
 Edge.Cuts at monochrome 1:1. Bottom geometry is mirrored before merging; sheet
 text remains readable.
-Both pages derive automatically from the single shared library worksheet
-`kicad-lib/drawing-sheets/alex-generic-pcba.kicad_wks`. No page-specific worksheet
+The schematic derives from `kicad-lib/drawing-sheets/alex-generic-sch.kicad_wks`;
+both assembly pages derive from `alex-generic-pcba.kicad_wks`. No page-specific worksheet
 is maintained in this repository. Joining preserves vector content, scale and
 orientation. DNP parts are sketched/crossed out. Small references require zooming;
 footprint geometry and reference positions are unchanged.
 
-`Workflow/BOM-template.xlsx` is an unchanged copy of the supplied sample.
+`kicad-lib/release-workflow/BOM-template.xlsx` is the shared release template.
 KiCad creates grouped CSV; the final job fills the template, preserving the
 title, merged metadata cells, fonts, grey fills and six-column layout.
-Column E uses the template width multiplied by 1.20; F uses 1.75. Other widths
-are unchanged. Current template baselines are E=22.42578125 and F=41.42578125;
-outputs are E=26.9109375 and F=72.4951171875. If a width is absent, the template's
+Column E uses the template width multiplied by 1.20; F is fixed at 34 Excel
+column-width units for long manufacturer part numbers in Calibri 11, with wrapping
+retained for exceptional outliers. Other widths are unchanged. The current
+template baseline for E is 22.42578125; output E is 26.9109375. If a width is absent, the template's
 default column width is used, falling back to openpyxl's 13-character default.
 Body rows wrap text with height unset, leaving AutoFit to the spreadsheet reader.
 No character-count estimator or `math` import remains. Excel's actual AutoFit
@@ -248,13 +259,13 @@ With the configured Python on PATH, run from the project root:
 kicad-cli jobset run -f Outputs.kicad_jobset vive-pogo.kicad_pro
 kicad-cli jobset run -f Outputs.kicad_jobset --output 9e5c254b-cb26-4a49-beea-fa7af8a62903 vive-pogo.kicad_pro
 kicad-cli jobset run -f Outputs.kicad_jobset --output 28dab1d3-7bf2-4d8a-9723-bcdd14e1d814 vive-pogo.kicad_pro
-python -m unittest discover -s Workflow -p test_finalize_outputs.py -v
+python -m unittest discover -s %KICAD_LIB_ROOT%/release-workflow -p test_finalize_outputs.py -v
 ```
 
 Validated on 2026-09-18: 7/7 fabrication and 10/10 assembly jobs passed. Both merged
 PDF pages were rendered and view order, numbering and readable title text checked.
 XLSX metadata, rows and numeric/text/date types were verified after reopening,
-and rendered against the template. Thirteen formatter tests cover merge order,
+and rendered against the template. Fifteen formatter tests cover merge order,
 metadata/types, literal text, missing exports, schema mismatch and context/path
 guards, exact worksheet substitutions, missing canonical sheets and targeted U3D
 pad-material replacement. Saved XLSX

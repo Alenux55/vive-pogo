@@ -99,7 +99,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(aux_axis_origin 134.25 102.25)
 		(grid_origin 134.25 102.25)
 		(pcbplotparams
@@ -140,10 +139,10 @@
 		)
 	)
 	(property "ProjectEngineer" "Alex Naylor")
-	(property "ProjectPCBAReleaseDate" "2026-09-24")
+	(property "ProjectPCBAReleaseDate" "2026-09-25")
 	(property "ProjectPCBARevision" "1.0")
 	(property "ProjectPCBDesigner" "Alex Naylor")
-	(property "ProjectPCBReleaseDate" "2026-09-24")
+	(property "ProjectPCBReleaseDate" "2026-09-25")
 	(property "ProjectPCBRevision" "1.0")
 	(property "ProjectTitle" "VIVE Pogo Board")
 	(footprint "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S_Slot"
@@ -3092,20 +3091,19 @@
 		(file
 			(name "alex-generic-pcb.kicad_wks")
 			(type worksheet)
-			(data |KLUv/WCGCKUTAMZcWSDwGD3QMXKnXDsbi32D46BqCV0fjg5wAa5Ts8AzOG+fClAASQBRAJmHPwSy
-				Ocq+FpRr5/mPcwYqYezQb9bk13IGCmV7yn5/8i8AAAGBR3r/IozS8lh2cw/nWZ3x1+zXQYZLSomY
-				cfbF9steKgACgm9k8mxVs6NCNCLo7EhRp6xd21/d847Zb8bacx07WiMNc1k79/bbQ9/bJeFc2+q/
-				3nVYizHC2bO363PGCC/Z2IVBLMr+XP+zrPau3tc8d/gfB/KCmWw0kY4H0nhMKCoChRTSjlJiUNGL
-				a+Vfdc41jkfmNRfhnFERmuFfITlnVPa/rjXqY/8jiehs2UBN2jHLsigRBcBf/JFNZ3/Ys6TVf/LP
-				PgGBQVKYmIqJYQhZ4Uw4F8QilsYlUplIrESzXH3bhtlzQoXk3nJipFDKzfa7hzaDw2oAqhmrv3YZ
-				fzq7VzOaSKaRspuNw1knpi2VXHNdVlMkTDQWA3Gg8TjHnJkZkSRJIR1gRMSMVefOA9oD7rgQ0oZL
-				DFj6MS8/k3T1h53o4CnlV920ERiQRnqxs8AeaNy5YSa4cGSmLATMzV+CQ07OE8Pum1SHnmRIJyd1
-				RbsI7FchjHzHgviE/bdY8T5crRNeQ3eYjRRgivVBjFwyZdBoKH0ypVFa0B11Ow/QFZkVjg/Ix0+p
-				1ByflUHaxNQfNQXSNOSyV+4juB7QWkt/ABDQHaZ6o0LRuxM8YO8e5VwtIJAEZjUrXfTWD+RtanBp
-				EAQyS0WSFKAtK64gAwLwpzcXPCSJsfWg8eqDwNez1G1QKYOiA+k2JOQyIsTP8cTeplebOk0f1vWB
-				YLjEGstGB+kY4Co=|
+			(data |KLUv/WD0B6USACbcViAQdx4mHMydLRk/jLS6a/iTsgXPqM6DRebykxkBiASKBk4ARwBPAPg/Hpuj
+				7Gs9uW6c77hmoBLG/nxmSX6tZqBQtp9s9yX/AgAQEHCi9y7CKB/n2cw5Gvc646/Zr3sMlZQSMePs
+				i22XfVQABARdiMTJKmZDhRFBZ0dqKmXs2v7qnHfMfjPGXuvY8YUwrF3t2ttv/3xnV4Rz7dd/fdsw
+				FuGUnV2fM1JIZVuVBa0o+3P97r32rd7HPG/4H19cUVYskQzmseE4Fo2IBEWgHaWkMNFWlfKuuuYY
+				RuPymINwvqAIrfCvjpyzKftfx9rUsd+JQHS2XJgm7XhdV5SIAuAv7simszvMPfn6S/7X0wGBYXai
+				orPqaFkPyqLymEQgFoJZrb7tTMNXG2bPCRFSe6uRUsrM9rt/MoNDauCpl9dft4w7nZ2rlwTmcVmc
+				bAYmUnY0csyMMcLqtYRCRFsBZ6DhRKcYIhkpSJJCOlCEiJmzbuBoIQ9Mnmfrel8U1o4CxFZOdsZw
+				h0Usc/yJwIiFAOz0tTHjUOjKgj6DQIdY9MQPswsC7iKsQS5ZPL95zNcYiFaPx7O+Z00E5CDN6ths
+				5mKJUPpSQmOyOHXqTDygDZzFpgfh04fUlcRgxSANdeqBCkUxDXnsKddRrin02NAfDIRojlO+6Ch6
+				4xAX/MbRHY8thZ1PrWali957idhSl0NbFAgCqskpQL+s8MIeCuJERwYdUtfZeuC/OjVcWkJ7n/6D
+				kjtWdpJuLyGvHTlsjgfsfYq1qRma9qwPCM9J0EY+WpCOQagC|
 			)
-			(checksum "ADE7B47B2271C63E74045D6CD4E0B1EE")
+			(checksum "86144C6AF09D9942C86DD5CEC97A9813")
 		)
 	)
 )
