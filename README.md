@@ -15,7 +15,7 @@ been verified. Use the validated KiCad version for matching output behavior.
 The formatter requires Python 3.10+ available as `python`, with:
 
 ```text
-python -m pip install -r %KICAD_LIB_ROOT%/release-workflow/requirements.txt
+python -m pip install -r "/absolute/path/to/kicad-lib/release-workflow/requirements.txt"
 ```
 
 Install into the worker interpreter once, not on each release. The pinned
@@ -98,9 +98,10 @@ metadata references the PCB revision so the native Gerber job file also receives
 
 ## Assembly PDF and BOM
 
-The Windows Execute Command jobs resolve the shared formatter through the
-`%KICAD_LIB_ROOT%` user environment variable, while the formatter uses the same
-`KICAD_LIB_ROOT` value for shared assets. Locally this is set to
+The Execute Command jobs use Python to read the `KICAD_LIB_ROOT` environment
+variable and construct the formatter path with `pathlib`, avoiding shell-specific
+`%VAR%` and `$VAR` syntax. The same command therefore works on Windows, Linux and
+macOS, provided Python 3.10+ is available on `PATH` as `python`. Locally this is set to
 `E:/Documents/GitHub/kicad-lib`, so the worksheet resolves to
 `E:/Documents/GitHub/kicad-lib/drawing-sheets/alex-generic-pcba.kicad_wks`.
 For Prism, make the shared library available to the worker (preferably read-only)
@@ -109,8 +110,8 @@ The inspected Prism Compose configuration has no dedicated shared-library mount;
 that deployment setup is required and was not applied here. There is no download,
 embedded-sheet fallback or independently maintained copy.
 
-Native Execute Command jobs run `%KICAD_LIB_ROOT%/release-workflow/
-finalize_outputs.py` before any export that needs a drawing sheet. The
+Native Execute Command jobs launch the shared `release-workflow/finalize_outputs.py`
+through the portable Python command before any export that needs a drawing sheet. The
 `prepare-fabrication` job copies the canonical PCB sheet to
 `${JOBSET_OUTPUT_WORK_PATH}/_work/fabrication.kicad_wks`; both the fabrication
 PDF and documentation Gerbers use that temporary copy. The `prepare-assembly`
@@ -259,7 +260,7 @@ With the configured Python on PATH, run from the project root:
 kicad-cli jobset run -f Outputs.kicad_jobset vive-pogo.kicad_pro
 kicad-cli jobset run -f Outputs.kicad_jobset --output 9e5c254b-cb26-4a49-beea-fa7af8a62903 vive-pogo.kicad_pro
 kicad-cli jobset run -f Outputs.kicad_jobset --output 28dab1d3-7bf2-4d8a-9723-bcdd14e1d814 vive-pogo.kicad_pro
-python -m unittest discover -s %KICAD_LIB_ROOT%/release-workflow -p test_finalize_outputs.py -v
+python -m unittest discover -s "/absolute/path/to/kicad-lib/release-workflow" -p test_finalize_outputs.py -v
 ```
 
 Validated on 2026-09-18: 7/7 fabrication and 10/10 assembly jobs passed. Both merged

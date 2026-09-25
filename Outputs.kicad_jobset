@@ -34,7 +34,7 @@
       "description": "Prepare fabrication worksheet from canonical PCB library sheet",
       "id": "4c26ee47-9328-4a41-8db0-f688d56c1852",
       "settings": {
-        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind prepare-fabrication",
+        "command": "python -c \"import os,runpy; from pathlib import Path; runpy.run_path(str(Path(os.environ['KICAD_LIB_ROOT']) / 'release-workflow' / 'finalize_outputs.py'),run_name='__main__')\" --project-root \"${KIPRJMOD}\" --kind prepare-fabrication",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/fabrication-worksheet.log",
@@ -366,7 +366,7 @@
       "description": "Prepare numbered worksheets from canonical PCBA library sheet",
       "id": "ae0442f0-bf5c-4f3e-9b41-7bd69998a7e9",
       "settings": {
-        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind prepare-assembly",
+        "command": "python -c \"import os,runpy; from pathlib import Path; runpy.run_path(str(Path(os.environ['KICAD_LIB_ROOT']) / 'release-workflow' / 'finalize_outputs.py'),run_name='__main__')\" --project-root \"${KIPRJMOD}\" --kind prepare-assembly",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/assembly-worksheets.log",
@@ -544,7 +544,7 @@
       "description": "Finalize fabrication files inside Prism destination",
       "id": "73dcfab1-0e67-43c3-a3ca-bb9b6df078fd",
       "settings": {
-        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind fabrication",
+        "command": "python -c \"import os,runpy; from pathlib import Path; runpy.run_path(str(Path(os.environ['KICAD_LIB_ROOT']) / 'release-workflow' / 'finalize_outputs.py'),run_name='__main__')\" --project-root \"${KIPRJMOD}\" --kind fabrication",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/fabrication-format.log",
@@ -556,7 +556,7 @@
       "description": "Finalize assembly files inside Prism destination",
       "id": "f05ec219-e21a-4d08-83af-6599995b23a4",
       "settings": {
-        "command": "py -3.14 \"%KICAD_LIB_ROOT%/release-workflow/finalize_outputs.py\" --project-root \"${KIPRJMOD}\" --kind assembly",
+        "command": "python -c \"import os,runpy; from pathlib import Path; runpy.run_path(str(Path(os.environ['KICAD_LIB_ROOT']) / 'release-workflow' / 'finalize_outputs.py'),run_name='__main__')\" --project-root \"${KIPRJMOD}\" --kind assembly",
         "description": "",
         "ignore_exit_code": false,
         "output_filename": "Checks/assembly-format.log",
