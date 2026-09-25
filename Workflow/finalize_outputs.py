@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import struct
 import sys
 from tempfile import TemporaryDirectory
 
@@ -90,8 +91,15 @@ def create_bom(source: Path, target: Path, variables: dict, variant: str, publis
     workbook.save(target)
 
 
-def merge_assembly(top: Path, bottom: Path, target: Path, title: str) -> None:
+def merge_assembly(top: Path, bottom: Path | None, target: Path, title: str) -> None:
     from pypdf import PdfReader, PdfWriter
+
+    if bottom is None:
+        reader = PdfReader(top)
+        if len(reader.pages) != 1:
+            raise ValueError(f"Expected one Top drawing page, got {len(reader.pages)}")
+        shutil.copyfile(top, target)
+        return
 
     writer = PdfWriter()
     for source, label in ((top, "Top"), (bottom, "Bottom")):
@@ -102,6 +110,87 @@ def merge_assembly(top: Path, bottom: Path, target: Path, title: str) -> None:
     writer.add_metadata({"/Title": title, "/Subject": "PCBA assembly: top and mirrored bottom"})
     with target.open("wb") as stream:
         writer.write(stream)
+
+
+def recolor_u3d_pads(data: bytes) -> bytes:
+    """Give KiCad's named pad material the same diffuse RGB as its copper material."""
+    material_block = 0xFFFFFF54
+    materials: dict[str, tuple[int, bytes]] = {}
+    offset = 0
+
+    while offset + 12 <= len(data):
+        block_type, data_size, metadata_size = struct.unpack_from("<III", data, offset)
+        payload = offset + 12
+        data_end = payload + data_size
+        block_end = (data_end + 3) & ~3
+        block_end += (metadata_size + 3) & ~3
+        if data_end > len(data) or block_end > len(data):
+            raise ValueError("Malformed U3D block length")
+
+        if block_type == material_block:
+            if data_size < 2:
+                raise ValueError("Malformed U3D material block")
+            name_size = struct.unpack_from("<H", data, payload)[0]
+            name_end = payload + 2 + name_size
+            # Attributes, ambient RGB, then diffuse RGB.
+            diffuse = name_end + 4 + 12
+            if diffuse + 12 > data_end:
+                raise ValueError("Malformed U3D material values")
+            try:
+                name = data[payload + 2:name_end].decode("utf-8")
+            except UnicodeDecodeError as error:
+                raise ValueError("Invalid U3D material name") from error
+            if name in materials:
+                raise ValueError(f"Duplicate U3D material: {name}")
+            materials[name] = (diffuse, data[diffuse:diffuse + 12])
+
+        offset = block_end
+
+    if offset != len(data):
+        raise ValueError("Trailing data after final U3D block")
+    missing = {"m_Copper_0", "m_Pads_0"} - materials.keys()
+    if missing:
+        raise ValueError(f"Required U3D material missing: {', '.join(sorted(missing))}")
+
+    pad_offset, pad_rgb = materials["m_Pads_0"]
+    _, copper_rgb = materials["m_Copper_0"]
+    if pad_rgb == copper_rgb:
+        return data
+    result = bytearray(data)
+    result[pad_offset:pad_offset + 12] = copper_rgb
+    return bytes(result)
+
+
+def recolor_3d_pdf(source: Path, target: Path) -> None:
+    """Recolor the pad material in KiCad's single-page 3D PDF output."""
+    from pypdf import PdfReader, PdfWriter
+
+    reader = PdfReader(source)
+    if len(reader.pages) != 1:
+        raise ValueError(f"Expected one 3D PDF page, got {len(reader.pages)}")
+    writer = PdfWriter()
+    writer.clone_document_from_reader(reader)
+    annotations = writer.pages[0].get("/Annots", [])
+    three_d = [item.get_object() for item in annotations
+               if item.get_object().get("/Subtype") == "/3D"]
+    if len(three_d) != 1:
+        raise ValueError(f"Expected one 3D annotation, got {len(three_d)}")
+    stream = three_d[0].get("/3DD")
+    if stream is None:
+        raise ValueError("3D annotation has no embedded stream")
+    stream = stream.get_object()
+    if stream.get("/Subtype") != "/U3D":
+        raise ValueError(f"Expected embedded U3D, got {stream.get('/Subtype')}")
+    stream.set_data(recolor_u3d_pads(stream.get_data()))
+    with target.open("wb") as output:
+        writer.write(output)
+
+    check = PdfReader(target)
+    annotation = check.pages[0]["/Annots"][0].get_object()
+    checked_stream = annotation["/3DD"].get_object()
+    checked = checked_stream.get_data()
+    if recolor_u3d_pads(checked) != checked:
+        raise ValueError("Pad material recolor did not persist")
 
 
 def jobset_work_root() -> Path:
@@ -115,9 +204,25 @@ def jobset_work_root() -> Path:
     return root
 
 
+def assembly_page_count(jobset_path: Path) -> int:
+    jobset = json.loads(jobset_path.read_text(encoding="utf-8"))
+    bottom_jobs = [job["id"] for job in jobset["jobs"]
+                   if job.get("settings", {}).get("output_filename") == "_work/assembly-bottom.pdf"]
+    prepare_jobs = [job["id"] for job in jobset["jobs"]
+                    if "--kind prepare-assembly" in job.get("settings", {}).get("command", "")]
+    if len(bottom_jobs) != 1 or len(prepare_jobs) != 1:
+        raise ValueError("Expected one Bottom drawing job and one worksheet preparation job")
+    destinations = [output for output in jobset["outputs"]
+                    if prepare_jobs[0] in output.get("only", [])]
+    if len(destinations) != 1:
+        raise ValueError("Expected worksheet preparation in exactly one Jobset destination")
+    return 2 if bottom_jobs[0] in destinations[0]["only"] else 1
+
+
 def prepare_assembly_worksheets() -> None:
     root = jobset_work_root()
     project_root = Path(__file__).resolve().parent.parent
+    page_count = assembly_page_count(project_root / "Outputs.kicad_jobset")
     library = Path(os.environ.get("KICAD_LIB_ROOT") or project_root.parent / "kicad-lib")
     source = library / "drawing-sheets" / "alex-generic-pcba.kicad_wks"
     if not source.is_file():
@@ -130,11 +235,13 @@ def prepare_assembly_worksheets() -> None:
         raise ValueError("Canonical worksheet must contain ${#} and ${##} page tokens")
     work = root / "_work"
     work.mkdir(exist_ok=True)
-    for page, view in ((1, "top"), (2, "bottom")):
+    views = ((1, "top"), (2, "bottom")) if page_count == 2 else ((1, "top"),)
+    for page, view in views:
         target = work / f"assembly-{view}.kicad_wks"
         # Exclusive creation prevents following a pre-existing target/symlink.
         with target.open("xb") as stream:
-            stream.write(content.replace(b"${##}", b"2").replace(b"${#}", str(page).encode()))
+            stream.write(content.replace(b"${##}", str(page_count).encode())
+                         .replace(b"${#}", str(page).encode()))
     print(f"Prepared assembly worksheets from {source.resolve()}")
 
 
@@ -160,7 +267,7 @@ def finalize(kind: str, variant_name: str = "") -> list[Path]:
     else:
         mapping = {"schematic.pdf": ("SCH", ".pdf"), "assembly-3d.pdf": ("3DPCB", ".pdf"),
                    "positions-all-pos.csv": ("Pick Place", ".csv")}
-        inputs = list(mapping) + ["assembly-top.pdf", "assembly-bottom.pdf", "bom.csv"]
+        inputs = list(mapping) + ["assembly-top.pdf", "bom.csv"]
         destination = root / variant
 
     for name in inputs:
@@ -168,13 +275,27 @@ def finalize(kind: str, variant_name: str = "") -> list[Path]:
         if source.is_symlink() or not source.is_file() or not source.stat().st_size:
             raise RuntimeError(f"Missing or invalid native output: {name}")
 
+    assembly_bottom = None
+    if kind == "assembly":
+        candidate = work / "assembly-bottom.pdf"
+        if candidate.is_symlink() or (candidate.exists()
+                                      and (not candidate.is_file() or not candidate.stat().st_size)):
+            raise RuntimeError("Missing or invalid native output: assembly-bottom.pdf")
+        if candidate.is_file():
+            assembly_bottom = candidate
+            inputs.append(candidate.name)
+
     # Build every formatted file before placing any of them in the destination.
     with TemporaryDirectory(prefix="format-", dir=root) as staging_path:
         staging = Path(staging_path)
         for name, (file_type, extension) in mapping.items():
-            shutil.copyfile(work / name, staging / (prefix + file_type + suffix + extension))
+            target = staging / (prefix + file_type + suffix + extension)
+            if name == "assembly-3d.pdf":
+                recolor_3d_pdf(work / name, target)
+            else:
+                shutil.copyfile(work / name, target)
         if kind == "assembly":
-            merge_assembly(work / "assembly-top.pdf", work / "assembly-bottom.pdf",
+            merge_assembly(work / "assembly-top.pdf", assembly_bottom,
                            staging / (prefix + "ASY" + suffix + ".pdf"), prefix + "ASY" + suffix)
             create_bom(work / "bom.csv", staging / (prefix + "BOM" + suffix + ".xlsx"),
                        variables, variant, published)

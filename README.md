@@ -123,9 +123,13 @@ The canonical worksheet controls its own labels: it currently uses
 `${ProjectPCBAReleaseDate}` rather than the generation clock and contains no
 Top/Bottom label. Page counters and PDF bookmarks identify the two views.
 
-The **single ASY PDF has Top on page 1 and Bottom on page 2**, with bookmarks.
-Native jobs plot F.Fab + Edge.Cuts and B.Fab + Edge.Cuts at monochrome 1:1.
-Bottom geometry is mirrored before merging; sheet text remains readable.
+The **single ASY PDF has Top on page 1 and Bottom on page 2**, with bookmarks,
+when both native drawing jobs are enabled. If the Bottom job is disabled, the
+worksheet preparation job derives the page total from the Assembly destination,
+so Top is numbered 1/1, and the formatter publishes the native one-page Top PDF
+without rewriting it. The Top drawing remains required. Native jobs plot F.Fab + Edge.Cuts and B.Fab +
+Edge.Cuts at monochrome 1:1. Bottom geometry is mirrored before merging; sheet
+text remains readable.
 Both pages derive automatically from the single shared library worksheet
 `kicad-lib/drawing-sheets/alex-generic-pcba.kicad_wks`. No page-specific worksheet
 is maintained in this repository. Joining preserves vector content, scale and
@@ -199,9 +203,12 @@ retaining a DNP resistor in a disposable test. Test points define no 3D models.
 Assembly 3D PDF is native U3D, with board, fitted component models, mask and
 silkscreen enabled, and DNP excluded. It requires a 3D-capable PDF reader;
 ordinary previews can be blank. Native output produces pypdf cross-reference
-warnings; desktop interactive viewing remains untested. The formatter copies
-it unchanged. The filename supplies PCBA revision/variant/date; custom internal
-3D PDF title metadata remains deferred.
+warnings; desktop interactive viewing remains untested. The formatter replaces
+the named U3D pad material's diffuse RGB with KiCad's named copper material RGB,
+then reopens and verifies the staged PDF. Unexpected pages, annotations, stream
+types or U3D material layouts fail the assembly release. All other embedded 3D
+materials are preserved. The filename supplies PCBA revision/variant/date;
+custom internal 3D PDF title metadata remains deferred.
 
 Pick-and-place is CSV, mm, both sides, existing origin, with DNP/BOM-excluded
 items omitted. SMD-only and through-hole-pad exclusion are disabled, retaining
@@ -247,9 +254,10 @@ python -m unittest discover -s Workflow -p test_finalize_outputs.py -v
 Validated on 2026-09-18: 7/7 fabrication and 10/10 assembly jobs passed. Both merged
 PDF pages were rendered and view order, numbering and readable title text checked.
 XLSX metadata, rows and numeric/text/date types were verified after reopening,
-and rendered against the template. Eight formatter tests cover merge order,
+and rendered against the template. Thirteen formatter tests cover merge order,
 metadata/types, literal text, missing exports, schema mismatch and context/path
-guards, exact worksheet substitutions and missing canonical sheets. Saved XLSX
+guards, exact worksheet substitutions, missing canonical sheets and targeted U3D
+pad-material replacement. Saved XLSX
 XML confirms item rows have neither `ht` nor `customHeight`; source SHA-256 hashes
 confirm unchanged PCB, schematic, project, template and canonical worksheet.
 Actual local Prism handler/resolver/Assets code is exercised with real
