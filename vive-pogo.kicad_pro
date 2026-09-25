@@ -542,7 +542,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "${ProjectTitle} R${ProjectPCBRevision} CAM/",
+      "plot": "_work/fabrication.pdf",
       "specctra_dsn": "",
       "step": "vive-pogo.step",
       "vrml": ""
