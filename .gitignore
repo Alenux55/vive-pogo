@@ -18,6 +18,9 @@ gerbers/
 fab/
 Releases/
 
+# Individual output files
+*.step
+
 # Remove library content
 RemoteLibrary/
 

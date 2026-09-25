@@ -690,10 +690,10 @@
   ],
   "text_variables": {
     "ProjectEngineer": "Alex Naylor",
-    "ProjectPCBAReleaseDate": "2026-09-18",
+    "ProjectPCBAReleaseDate": "2026-09-24",
     "ProjectPCBARevision": "1.0",
     "ProjectPCBDesigner": "Alex Naylor",
-    "ProjectPCBReleaseDate": "2026-09-18",
+    "ProjectPCBReleaseDate": "2026-09-24",
     "ProjectPCBRevision": "1.0",
     "ProjectTitle": "VIVE Pogo Board"
   },
