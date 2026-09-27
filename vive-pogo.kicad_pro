@@ -79,7 +79,15 @@
       "drc_exclusions": [
         [
           "courtyards_overlap|143955000|100305000|1c999964-ec23-422c-afba-ed989f362a58|1e8fc84c-9a67-426c-8b08-23fa3fecd3bc",
-          "Fine for these two to overlap; there's no mechanical or electrical interference."
+          "There will be enough physical clearance between the resistor and USB connector."
+        ],
+        [
+          "silk_edge_clearance|148750000|102169205|ff1c8dd8-4e91-437b-a199-3342dda75509|33ad43a5-3e55-4802-907c-3d7a4436c126",
+          "The text box violates this rule, not the actual silkscreen."
+        ],
+        [
+          "silk_over_copper|148949999|98067709|33ad43a5-3e55-4802-907c-3d7a4436c126|00000000-0000-0000-0000-000000000000",
+          "The text box violates this rule, not the actual silkscreen."
         ]
       ],
       "meta": {
@@ -690,11 +698,11 @@
   ],
   "text_variables": {
     "ProjectEngineer": "Alex Naylor",
-    "ProjectPCBAReleaseDate": "2026-09-25",
-    "ProjectPCBARevision": "1.0",
+    "ProjectPCBAReleaseDate": "2026-09-26",
+    "ProjectPCBARevision": "2.0",
     "ProjectPCBDesigner": "Alex Naylor",
-    "ProjectPCBReleaseDate": "2026-09-25",
-    "ProjectPCBRevision": "1.0",
+    "ProjectPCBReleaseDate": "2026-09-26",
+    "ProjectPCBRevision": "2.0",
     "ProjectTitle": "VIVE Pogo Board"
   },
   "tuning_profiles": {
