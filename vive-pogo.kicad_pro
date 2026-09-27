@@ -550,7 +550,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "_work/fabrication.pdf",
+      "plot": "${ProjectTitle} R${ProjectPCBRevision} CAM/",
       "specctra_dsn": "",
       "step": "vive-pogo.step",
       "vrml": ""
@@ -698,10 +698,10 @@
   ],
   "text_variables": {
     "ProjectEngineer": "Alex Naylor",
-    "ProjectPCBAReleaseDate": "2026-09-26",
+    "ProjectPCBAReleaseDate": "2026-09-27",
     "ProjectPCBARevision": "2.0",
     "ProjectPCBDesigner": "Alex Naylor",
-    "ProjectPCBReleaseDate": "2026-09-26",
+    "ProjectPCBReleaseDate": "2026-09-27",
     "ProjectPCBRevision": "2.0",
     "ProjectTitle": "VIVE Pogo Board"
   },
