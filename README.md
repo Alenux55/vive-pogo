@@ -37,6 +37,23 @@ versioned with the design. The reusable formatter, templates, drawing sheets,
 runtime setup, and maintenance instructions live in the sibling `kicad-lib`
 repository under `release-workflow/`.
 
+Run all three Jobset outputs in order: Fabrication, Assembly, then Release ZIP.
+The final output packages both completed folders, including check reports, into
+`Releases/vive-pogo-board-rx-y.YYYYMMDD-HHMM.zip`. Naming uses `ProjectTitle`,
+`ProjectPCBARevision`, and the local packaging time. For example:
+`vive-pogo-board-r2-0.20260927-0256.zip`. The archive contains `Assembly/` and
+`Fabrication/` at its root. After verifying the new archive, packaging removes
+older ZIPs in `Releases/` matching this project's release naming pattern;
+unrelated ZIPs are preserved. The packaging step
+checks that the formatted documents for the current revisions exist, but does
+not rerun the exports: always run both preceding outputs successfully first.
+Reload the jobset in KiCad/Prism after changing its file on disk.
+The packaging implementation and tests live in
+`${KICAD_LIB_ROOT}/release-workflow/`. ZIP names read the saved
+`ProjectPCBARevision` from the `.kicad_pro` file; save project-variable edits
+before running. The packaging log reports the exact project file and revision
+used. `ProjectPCBRevision` only validates the fabrication documents.
+
 Revisions use `Rx.y`:
 
 - `x` is the copper/design revision and changes when the physical PCB design

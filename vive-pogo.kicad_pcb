@@ -140,10 +140,10 @@
 	)
 	(property "ProjectEngineer" "Alex Naylor")
 	(property "ProjectPCBAReleaseDate" "2026-09-27")
-	(property "ProjectPCBARevision" "2.0")
+	(property "ProjectPCBARevision" "1.0")
 	(property "ProjectPCBDesigner" "Alex Naylor")
 	(property "ProjectPCBReleaseDate" "2026-09-27")
-	(property "ProjectPCBRevision" "2.0")
+	(property "ProjectPCBRevision" "1.0")
 	(property "ProjectTitle" "VIVE Pogo Board")
 	(footprint "remote_zx80-b-5s_30_:Hirose_ZX80-B-5S_Slot"
 		(locked yes)

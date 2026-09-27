@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.6"
     },
-    "CreationDate": "2026-09-27T02:50:26-07:00"
+    "CreationDate": "2026-09-27T09:53:03-07:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "vive-pogo",
       "GUID": "76697665-2d70-46f6-976f-2e6b69636164",
-      "Revision": "2.0"
+      "Revision": "1.0"
     },
     "Size": {
       "X": 21.55,

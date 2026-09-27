@@ -562,6 +562,18 @@
         "record_output": true
       },
       "type": "special_execute"
+    },
+    {
+      "description": "Package completed Assembly and Fabrication releases",
+      "id": "731563d3-dcf6-4f37-b331-948a676e4064",
+      "settings": {
+        "command": "python -c \"import os,runpy; from pathlib import Path; runpy.run_path(str(Path(os.environ['KICAD_LIB_ROOT']) / 'release-workflow' / 'package_release.py'),run_name='__main__')\" --project-root \"${KIPRJMOD}\"",
+        "description": "",
+        "ignore_exit_code": false,
+        "output_filename": "package-release.log",
+        "record_output": true
+      },
+      "type": "special_execute"
     }
   ],
   "meta": {
@@ -602,6 +614,13 @@
       "settings": {
         "output_path": "Releases/Assembly"
       },
+      "type": "folder"
+    },
+    {
+      "description": "Release ZIP (run last, after Fabrication and Assembly)",
+      "id": "70564d49-e094-408b-94bc-54fb46866257",
+      "only": ["731563d3-dcf6-4f37-b331-948a676e4064"],
+      "settings": {"output_path": "Releases"},
       "type": "folder"
     }
   ]
